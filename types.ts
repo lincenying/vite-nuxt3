@@ -1,5 +1,3 @@
-import type { AxiosInstance } from 'axios'
-
 export interface AnyArray {
     [index: number]: any
 }

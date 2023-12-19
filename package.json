@@ -19,8 +19,8 @@
   },
   "devDependencies": {
     "@element-plus/nuxt": "^1.0.7",
-    "@iconify-json/carbon": "^1.1.25",
-    "@iconify-json/twemoji": "^1.1.14",
+    "@iconify-json/carbon": "^1.1.27",
+    "@iconify-json/twemoji": "^1.1.15",
     "@lincy/base-config": "^1.0.1",
     "@lincy/eslint-config": "^4.2.3",
     "@lincy/stylelint-config": "^1.17.3",
