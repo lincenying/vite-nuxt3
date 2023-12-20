@@ -31,10 +31,10 @@ const { data } = await useFetch<ArticleLists>('/api/article/lists', {
 })
 
 watch(data, (newData) => {
-    if (newData?.code === 200) {
-        lists = newData.data.list || []
-        hasPrev = newData.data.hasPrev
-        hasNext = newData.data.hasNext
+    if (newData.value?.code === 200) {
+        lists = newData.value.data.list || []
+        hasPrev = newData.value.data.hasPrev
+        hasNext = newData.value.data.hasNext
     }
 }, {
     immediate: true,
