@@ -29,6 +29,7 @@
     "@unocss/eslint-config": "^0.58.0",
     "@unocss/nuxt": "^0.58.0",
     "@vite-pwa/nuxt": "^0.3.5",
+    "@vue-macros/nuxt": "^1.9.11",
     "@vueuse/nuxt": "^10.7.0",
     "consola": "^3.2.3",
     "element-plus": "^2.4.4",

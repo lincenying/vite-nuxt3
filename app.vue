@@ -17,13 +17,17 @@ useHead({
 html,
 body,
 #__nuxt {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 html.dark {
-  background: #222;
-  color: white;
+    background: #222;
+    color: white;
+}
+
+body {
+    overflow-y: scroll;
 }
 </style>
