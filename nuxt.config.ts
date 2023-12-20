@@ -9,7 +9,7 @@ export default defineNuxtConfig({
         '@nuxtjs/color-mode',
         '@vite-pwa/nuxt',
         '@element-plus/nuxt',
-        '@vue-macros/nuxt',
+        // '@vue-macros/nuxt',
     ],
 
     elementPlus: { /** Options */ },

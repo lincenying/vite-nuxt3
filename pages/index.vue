@@ -16,35 +16,35 @@
 <script setup lang="ts">
 import type { Article, ArticleLists } from '~/types'
 
-let lists = $ref<Article[]>([])
-let page = $ref(1)
-let hasPrev = $ref(false)
-let hasNext = $ref(false)
+const lists = ref<Article[]>([])
+const page = ref(1)
+const hasPrev = ref(false)
+const hasNext = ref(false)
 
 const { data } = await useFetch<ArticleLists>('/api/article/lists', {
     key: `article-lists`,
     params: {
-        page: $$(page),
+        page,
         limit: 15,
     },
     headers: useRequestHeaders(['cookie']),
 })
 
-watch(data, (newData) => {
-    if (newData.value?.code === 200) {
-        lists = newData.value.data.list || []
-        hasPrev = newData.value.data.hasPrev
-        hasNext = newData.value.data.hasNext
+watch(() => data.value, (newData) => {
+    if (newData?.code === 200) {
+        lists.value = newData.data.list || []
+        hasPrev.value = newData.data.hasPrev
+        hasNext.value = newData.data.hasNext
     }
 }, {
     immediate: true,
 })
 
 function handlePrev() {
-    page = page - 1
+    page.value = page.value - 1
 }
 function handleNext() {
-    page = page + 1
+    page.value = page.value + 1
 }
 
 definePageMeta({
