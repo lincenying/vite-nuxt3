@@ -1,7 +1,8 @@
-import { pwa } from './config/pwa'
-import { appDescription } from './constants/index'
+import { pwa } from './src/config/pwa'
+import { appDescription } from './src/constants/index'
 
 export default defineNuxtConfig({
+    srcDir: 'src',
     modules: [
         '@vueuse/nuxt',
         '@unocss/nuxt',
