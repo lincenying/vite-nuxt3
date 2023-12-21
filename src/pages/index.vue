@@ -22,8 +22,8 @@ const { counter, name } = storeToRefs(indexStore)
 
 const lists = ref<Article[]>([])
 const page = ref(1)
-const hasPrev = ref(false)
-const hasNext = ref(false)
+let hasPrev = $ref(false)
+let hasNext = $ref(false)
 
 const { data } = await useFetch<ArticleLists>('/api/article/lists', {
     key: `article-lists`,
@@ -37,8 +37,8 @@ const { data } = await useFetch<ArticleLists>('/api/article/lists', {
 watch(() => data.value, (newData) => {
     if (newData?.code === 200) {
         lists.value = newData.data.list || []
-        hasPrev.value = newData.data.hasPrev
-        hasNext.value = newData.data.hasNext
+        hasPrev = newData.data.hasPrev
+        hasNext = newData.data.hasNext
     }
 }, {
     immediate: true,

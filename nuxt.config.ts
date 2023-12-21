@@ -10,7 +10,7 @@ export default defineNuxtConfig({
         '@nuxtjs/color-mode',
         '@vite-pwa/nuxt',
         '@element-plus/nuxt',
-        // '@vue-macros/nuxt',
+        '@vue-macros/nuxt',
     ],
 
     elementPlus: { /** Options */ },
@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     },
 
     css: [
-        '@unocss/reset/tailwind.css',
+        '@unocss/reset/tailwind-compat.css',
     ],
 
     colorMode: {
@@ -65,5 +65,15 @@ export default defineNuxtConfig({
 
     devtools: {
         enabled: true,
+    },
+
+    devServer: {
+        port: 7123,
+    },
+
+    nitro: {
+        routeRules: {
+            '/api/**': { proxy: 'https://php.mmxiaowu.com/api/fetch/**' },
+        },
     },
 })

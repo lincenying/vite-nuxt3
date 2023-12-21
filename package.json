@@ -1,7 +1,7 @@
 {
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@8.12.0",
+  "packageManager": "pnpm@8.12.1",
   "scripts": {
     "build": "nuxi build",
     "dev:pwa": "VITE_PLUGIN_PWA=true nuxi dev",
@@ -14,9 +14,6 @@
     "lint:fix": "eslint . --fix",
     "lint:ts": "vue-tsc --noEmit"
   },
-  "dependencies": {
-    "axios": "^1.6.2"
-  },
   "devDependencies": {
     "@element-plus/nuxt": "^1.0.7",
     "@iconify-json/carbon": "^1.1.27",
@@ -28,8 +25,8 @@
     "@pinia/nuxt": "^0.5.1",
     "@unocss/eslint-config": "^0.58.0",
     "@unocss/nuxt": "^0.58.0",
-    "@vite-pwa/nuxt": "^0.3.5",
-    "@vue-macros/nuxt": "^1.9.11",
+    "@vite-pwa/nuxt": "^0.3.6",
+    "@vue-macros/nuxt": "^1.9.12",
     "@vueuse/nuxt": "^10.7.0",
     "consola": "^3.2.3",
     "element-plus": "^2.4.4",
