@@ -9,12 +9,16 @@
                 <span v-if="hasPrev" class="m-3 text-sm btn" @click="handlePrev"> Prev </span>
                 <span v-if="hasNext" class="m-3 text-sm btn" @click="handleNext"> Next </span>
             </div>
+            <div>User: {{ name }} - {{ counter }}</div>
         </el-card>
     </div>
 </template>
 
 <script setup lang="ts">
 import type { Article, ArticleLists } from '~/types'
+
+const indexStore = useIndexStore()
+const { counter, name } = storeToRefs(indexStore)
 
 const lists = ref<Article[]>([])
 const page = ref(1)
@@ -40,11 +44,17 @@ watch(() => data.value, (newData) => {
     immediate: true,
 })
 
+setTimeout(() => {
+    indexStore.updateName('张三')
+}, 2000)
+
 function handlePrev() {
     page.value = page.value - 1
+    indexStore.increment()
 }
 function handleNext() {
     page.value = page.value + 1
+    indexStore.increment()
 }
 
 definePageMeta({
