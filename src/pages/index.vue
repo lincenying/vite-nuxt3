@@ -11,6 +11,9 @@
                     <span v-if="hasNext" class="m-3 text-sm btn" @click="handleNext"> Next </span>
                 </div>
                 <div>User: {{ name }} - Click: {{ counter }}</div>
+                <div flex-cc gap-10px>
+                    <span class="m-3 text-sm btn" @click="handleToList"> Go To List </span>
+                </div>
             </el-scrollbar>
         </el-card>
     </div>
@@ -18,6 +21,8 @@
 
 <script setup lang="ts">
 import type { Article, ArticleLists } from '~/types'
+
+const router = useRouter()
 
 const indexStore = useIndexStore()
 const { counter, name } = storeToRefs(indexStore)
@@ -57,6 +62,9 @@ function handlePrev() {
 function handleNext() {
     page.value = page.value + 1
     indexStore.increment()
+}
+function handleToList() {
+    router.push('/list')
 }
 
 definePageMeta({
