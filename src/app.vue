@@ -28,6 +28,6 @@ html.dark {
 }
 
 body {
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 </style>

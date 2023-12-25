@@ -2,10 +2,12 @@
     <div>
         <Logos mb-6 />
         <el-card mx-auto my-0 w-600px>
-            <div>
-                <span class="m-3 text-sm btn" @click="router.go(-1)"> Back </span>
-            </div>
-            <div v-html="detail?.c_content"></div>
+            <el-scrollbar wrap-style="height: calc(100vh - 80px - 120px - 100px - 40px)">
+                <div>
+                    <span class="m-3 text-sm btn" @click="router.go(-1)"> Back </span>
+                </div>
+                <div v-html="detail?.c_content"></div>
+            </el-scrollbar>
         </el-card>
     </div>
 </template>

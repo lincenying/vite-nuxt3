@@ -4,20 +4,20 @@ import { appDescription } from './src/constants/index'
 export default defineNuxtConfig({
     srcDir: 'src',
     modules: [
-        '@vueuse/nuxt',
-        '@unocss/nuxt',
-        '@pinia/nuxt',
-        '@nuxtjs/color-mode',
-        '@vite-pwa/nuxt',
         '@element-plus/nuxt',
+        '@nuxtjs/color-mode',
+        '@pinia/nuxt',
+        '@unocss/nuxt',
+        '@vite-pwa/nuxt',
         '@vue-macros/nuxt',
+        '@vueuse/nuxt',
     ],
 
     elementPlus: { /** Options */ },
 
     experimental: {
-    // when using generate, payload js assets included in sw precache manifest
-    // but missing on offline, disabling extraction it until fixed
+        // 使用generate时，payload js资源包含在sw预缓存清单中
+        // 但离线时丢失，禁用提取直到修复
         payloadExtraction: false,
         inlineSSRStyles: false,
         renderJsonPayloads: true,
@@ -42,6 +42,9 @@ export default defineNuxtConfig({
             crawlLinks: false,
             routes: ['/'],
             ignore: ['/article'],
+        },
+        routeRules: {
+            '/api/**': { proxy: 'https://php.mmxiaowu.com/api/fetch/**' },
         },
     },
 
@@ -69,11 +72,5 @@ export default defineNuxtConfig({
 
     devServer: {
         port: 7123,
-    },
-
-    nitro: {
-        routeRules: {
-            '/api/**': { proxy: 'https://php.mmxiaowu.com/api/fetch/**' },
-        },
     },
 })
