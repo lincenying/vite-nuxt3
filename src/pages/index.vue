@@ -20,6 +20,7 @@
 </template>
 
 <script setup lang="ts">
+import { appName } from '~/constants'
 import type { Article, ArticleLists } from '~/types'
 
 const router = useRouter()
@@ -66,6 +67,10 @@ function handleNext() {
 function handleToList() {
     router.push('/list')
 }
+
+useHead({
+    title: `Index Page - ${appName}`,
+})
 
 definePageMeta({
     key: 'article-lists',

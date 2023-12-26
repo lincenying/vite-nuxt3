@@ -19,7 +19,6 @@ export default defineNuxtConfig({
         // 使用generate时，payload js资源包含在sw预缓存清单中
         // 但离线时丢失，禁用提取直到修复
         payloadExtraction: false,
-        inlineSSRStyles: false,
         renderJsonPayloads: true,
         typedPages: true,
     },

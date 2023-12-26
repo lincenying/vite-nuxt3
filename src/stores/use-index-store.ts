@@ -1,5 +1,5 @@
 import { acceptHMRUpdate } from 'pinia'
-import type { Article } from '~/types'
+import type { ApiConfig, Article, ArticleList } from '~/types'
 
 interface StateType {
     counter: number
@@ -8,7 +8,7 @@ interface StateType {
     blog: Article[]
 }
 
-const usePiniaStore = defineStore('indexStore', () => {
+const useIndexStore = defineStore('indexStore', () => {
     const state: StateType = reactive({
         counter: 0,
         name: 'Eduardo',
@@ -22,8 +22,8 @@ const usePiniaStore = defineStore('indexStore', () => {
     const updateName = (name: string) => {
         state.name = name
     }
-    const fetchBlog = async (config: any = {}) => {
-        const { code, data } = await $fetch<{ code: number; data: Article[] }>('/api/article/list', {
+    const fetchBlog = async (config: ApiConfig = {}) => {
+        const { code, data } = await $fetch<ArticleList>('/api/article/list', {
             method: 'GET',
             query: config,
         })
@@ -38,7 +38,7 @@ const usePiniaStore = defineStore('indexStore', () => {
         fetchBlog,
     }
 })
-export default usePiniaStore
+export default useIndexStore
 
 if (import.meta.hot)
-    import.meta.hot.accept(acceptHMRUpdate(usePiniaStore, import.meta.hot))
+    import.meta.hot.accept(acceptHMRUpdate(useIndexStore, import.meta.hot))

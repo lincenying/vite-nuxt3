@@ -198,6 +198,11 @@ export interface ArticleLists {
     data: Data
 }
 
+export interface ArticleList {
+    code: number
+    data: Article[]
+}
+
 export interface ArticleDetail {
     code: number
     data: Article

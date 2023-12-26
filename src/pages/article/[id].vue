@@ -13,6 +13,7 @@
 </template>
 
 <script setup lang="ts">
+import { appName } from '~/constants'
 import type { ArticleDetail } from '~/types'
 
 const router = useRouter()
@@ -28,6 +29,13 @@ const { data } = await useFetch<ArticleDetail>(`/api/article/detail`, {
 
 const detail = computed(() => {
     return data.value?.data
+})
+
+const { data: posts } = useNuxtData('article-lists')
+console.log('🚀 ~ file: [id].vue:35 ~ posts:', posts)
+
+useHead({
+    title: `${detail.value?.c_title} - ${appName}`,
 })
 
 definePageMeta({

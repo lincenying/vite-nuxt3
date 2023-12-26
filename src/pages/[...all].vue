@@ -11,5 +11,11 @@
 </template>
 
 <script setup lang="ts">
+import { appName } from '~/constants'
+
 const router = useRouter()
+
+useHead({
+    title: `Not found - ${appName}`,
+})
 </script>

@@ -12,12 +12,16 @@
 </template>
 
 <script setup lang="ts">
-import type { Article } from '~/types'
+import { appName } from '~/constants'
 
 const indexStore = useIndexStore()
 const { blog } = storeToRefs(indexStore)
 
 await useAsyncData('article-list', () => indexStore.fetchBlog({ page: 1, limit: 20 }))
+
+useHead({
+    title: `List Page - ${appName}`,
+})
 
 definePageMeta({
     key: 'article-list',
