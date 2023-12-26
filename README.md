@@ -25,7 +25,7 @@
 
 ## IDE
 
-建议使用 [VS Code](https://code.visualstudio.com/) 和 [Volar](https://github.com/johnsoncodehk/volar) 以获得最佳体验（您可能需要禁用 [Vetur] （https://vuejs.github.io/vetur/）如果你有的话）。
+建议使用 [VS Code](https://code.visualstudio.com/) 和 [Volar](https://github.com/johnsoncodehk/volar) 以获得最佳体验（您可能需要禁用 [Vetur](https://vuejs.github.io/vetur/) 如果你有的话）。
 
 ## Variations
 
@@ -38,6 +38,10 @@
 -   [vite-vue3-admin](https://github.com/lincenying/vite-vue3-admin) - Vue3 + ElementPlus + Vite 管理后台入门模板
 
 ## Try it now!
+
+### Online
+
+https://codesandbox.io/p/github/lincenying/vite-nuxt3/main
 
 ### Clone to local
 

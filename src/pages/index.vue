@@ -3,7 +3,8 @@
         <Logos mb-6 />
         <el-card mx-auto my-0 w-600px>
             <el-scrollbar wrap-style="height: calc(100vh - 80px - 120px - 100px - 40px)">
-                <div v-for="(item, index) in lists" :key="index" text-left lh-34px>
+                <div v-for="(item, index) in lists" :key="index" flex--c text-left lh-34px>
+                    <span class="i-carbon-strawberry" mr-10px></span>
                     <router-link :to="`/article/${item.c_id}`">{{ item.c_title }}</router-link>
                 </div>
                 <div flex-cc gap-10px>
@@ -12,6 +13,7 @@
                 </div>
                 <div>User: {{ name }} - Click: {{ counter }}</div>
                 <div flex-cc gap-10px>
+                    <button class="i-twemoji:backhand-index-pointing-right" />
                     <span class="m-3 text-sm btn" @click="handleToList"> Go To List </span>
                 </div>
             </el-scrollbar>

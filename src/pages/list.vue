@@ -3,7 +3,8 @@
         <Logos mb-6 />
         <el-card mx-auto my-0 w-600px>
             <el-scrollbar wrap-style="height: calc(100vh - 80px - 120px - 100px - 40px)">
-                <div v-for="(item, index) in blog" :key="`b${index}`" text-left lh-34px>
+                <div v-for="(item, index) in blog" :key="`b${index}`" flex--c text-left lh-34px>
+                    <span class="i-carbon-strawberry" mr-10px></span>
                     <router-link :to="`/article/${item.c_id}`">{{ item.c_title }}</router-link>
                 </div>
             </el-scrollbar>
