@@ -2,10 +2,10 @@
     <div>
         <Logos mb-6 />
         <el-card mx-auto my-0 w-600px>
-            <div>
-                <span class="m-3 text-sm btn" @click="router.go(-1)"> Back </span>
+            <div mx-3 mb-3>
+                <span class="text-sm btn" @click="router.go(-1)"> Back </span>
             </div>
-            <el-scrollbar wrap-style="height: calc(100vh - 80px - 120px - 100px - 40px - 46px)">
+            <el-scrollbar wrap-style="height: calc(100vh - 80px - 120px - 100px - 40px - 36px)">
                 <div text="center 18px" mb-30px font-800>{{ detail?.c_title }}</div>
                 <div v-html="detail?.c_content"></div>
             </el-scrollbar>
@@ -15,11 +15,10 @@
 
 <script setup lang="ts">
 import { appName } from '~/constants'
-import type { ArticleDetail } from '~/types'
+import type { ArticleDetail, ArticleLists } from '~/types'
 
 const router = useRouter()
-const route = useRoute<'article-id'>()
-const id = ref(route.params.id)
+const id = useRouteParam('id')
 
 const { data } = await useFetch<ArticleDetail>(`/api/article/detail`, {
     key: `article-detail-${id}`,
@@ -32,7 +31,7 @@ const detail = computed(() => {
     return data.value?.data
 })
 
-const { data: posts } = useNuxtData('article-lists')
+const { data: posts } = useNuxtData<ArticleLists>('article-lists')
 console.log('🚀 ~ file: [id].vue:35 ~ posts:', posts)
 
 useHead({
