@@ -40,7 +40,7 @@ export default defineNuxtConfig({
         prerender: {
             crawlLinks: false,
             routes: ['/'],
-            ignore: ['/article'],
+            ignore: [],
         },
         routeRules: {
             '/api/**': { proxy: 'https://php.mmxiaowu.com/api/fetch/**' },

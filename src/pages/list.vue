@@ -23,8 +23,7 @@ await useAsyncData('article-list', () => indexStore.fetchBlog({ page: 1, limit: 
 
 // 记录和还原滚动条位置
 const scrollBar = ref<ScrollbarInstance>()
-const { onScroll, scrollBarTemp } = useAutoScroll('article-list')
-watch(scrollBar, val => scrollBarTemp.value = val)
+const { onScroll } = useAutoScroll('article-list')
 
 useHead({
     title: `List Page - ${appName}`,

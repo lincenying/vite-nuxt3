@@ -4,18 +4,18 @@ export type ScrollbarInstance = InstanceType<typeof ElScrollbar>
 
 export function useAutoScroll(key: string) {
     const scrollTop = useState<number>(key)
-    const scrollBarTemp = ref<ScrollbarInstance>()
 
     function onScroll(event: { scrollLeft: number; scrollTop: number }) {
         scrollTop.value = event.scrollTop
     }
 
     onActivated(() => {
-        scrollTop.value ?? scrollBarTemp.value?.setScrollTop(scrollTop.value)
+        const scrollBar = templateRef('scrollBar') as Ref<Pick<ScrollbarInstance, 'setScrollTop'>>
+        if (scrollTop.value)
+            scrollBar.value?.setScrollTop(scrollTop.value)
     })
 
     return {
         onScroll,
-        scrollBarTemp,
     }
 }
