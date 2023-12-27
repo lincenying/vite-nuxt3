@@ -19,7 +19,7 @@ import { appName } from '~/constants'
 const indexStore = useIndexStore()
 const { blog } = storeToRefs(indexStore)
 
-await useAsyncData('article-list', () => indexStore.fetchBlog({ page: 1, limit: 30 }))
+await useAsyncData('article-list', () => indexStore.fetchBlog({ page: 1, limit: 100 }))
 
 // 记录和还原滚动条位置
 const scrollBar = ref<ScrollbarInstance>()
