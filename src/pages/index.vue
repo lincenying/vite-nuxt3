@@ -11,7 +11,7 @@
                     <span v-if="hasPrev" class="m-3 text-sm btn" @click="handlePrev"> Prev </span>
                     <span v-if="hasNext" class="m-3 text-sm btn" @click="handleNext"> Next </span>
                 </div>
-                <div>User: {{ name }} - Click: {{ counter }}</div>
+                <div>User: {{ name }} - Click: {{ counter }} - CountState: {{ count }}</div>
                 <div flex-cc gap-10px>
                     <button class="i-twemoji:backhand-index-pointing-right" />
                     <span class="m-3 text-sm btn" @click="handleToList"> Go To List </span>
@@ -29,6 +29,8 @@ const router = useRouter()
 
 const indexStore = useIndexStore()
 const { counter, name } = storeToRefs(indexStore)
+
+const { count, inc, dec } = useCount()
 
 const lists = ref<Article[]>([])
 const page = ref(1)
@@ -61,10 +63,12 @@ setTimeout(() => {
 function handlePrev() {
     page.value = page.value - 1
     indexStore.increment()
+    dec()
 }
 function handleNext() {
     page.value = page.value + 1
     indexStore.increment()
+    inc()
 }
 function handleToList() {
     router.push('/list')
