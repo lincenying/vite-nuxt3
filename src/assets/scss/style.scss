@@ -1,0 +1,26 @@
+html,
+body,
+#nuxt-root {
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+html.dark {
+    color: white;
+    background: #222;
+}
+
+body {
+    /* overflow-y: scroll; */
+}
+
+.el-card {
+    .el-card__body {
+        padding-right: 10px;
+    }
+
+    .el-scrollbar {
+        padding-right: 10px;
+    }
+}

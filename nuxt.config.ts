@@ -48,6 +48,7 @@ export default defineNuxtConfig({
     },
 
     app: {
+        rootId: 'nuxt-root',
         head: {
             viewport: 'width=device-width,initial-scale=1',
             link: [
