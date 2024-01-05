@@ -73,4 +73,13 @@ export default defineNuxtConfig({
     devServer: {
         port: 7123,
     },
+
+    imports: {
+        presets: [
+            {
+                from: 'vue-loading-overlay',
+                imports: ['useLoading'],
+            },
+        ],
+    },
 })

@@ -2,12 +2,12 @@
     <div>
         <Logos mb-6 />
         <el-card mx-auto my-0 w-600px>
-            <ElScrollbar ref="scrollBar" wrap-style="height: calc(100vh - 80px - 120px - 100px - 40px)" @scroll="onScroll">
+            <el-scrollbar ref="listScrollBar" wrap-style="height: calc(100vh - 80px - 120px - 100px - 40px)" @scroll="onScroll">
                 <div v-for="(item, index) in blog" :key="`b${index}`" flex--c text-left lh-34px>
                     <span class="i-carbon-strawberry" mr-10px></span>
-                    <router-link :to="`/article/${item.c_id}`">{{ item.c_title }}</router-link>
+                    <NuxtLink :to="`/article/${item.c_id}`">{{ item.c_title }}</NuxtLink>
                 </div>
-            </ElScrollbar>
+            </el-scrollbar>
         </el-card>
     </div>
 </template>
@@ -22,8 +22,8 @@ const { blog } = storeToRefs(indexStore)
 await useAsyncData('article-list', () => indexStore.fetchBlog({ page: 1, limit: 100 }))
 
 // 记录和还原滚动条位置
-const scrollBar = ref<ScrollbarInstance>()
-const { onScroll } = useAutoScroll('article-list')
+const listScrollBar = ref<ScrollbarInstance>()
+const { onScroll } = useAutoScroll('listScrollBar')
 
 useHead({
     title: `List Page - ${appName}`,

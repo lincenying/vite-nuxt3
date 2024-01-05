@@ -22,7 +22,7 @@ const router = useRouter()
 const id = useRouteParam('id')
 
 const { data } = await useFetch<ArticleDetail>(`/api/article/detail`, {
-    key: `article-detail-${id}`,
+    key: `article-detail-${id.value}`,
     params: {
         id,
     },
