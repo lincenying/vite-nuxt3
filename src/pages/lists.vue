@@ -1,7 +1,7 @@
 <template>
     <div>
         <Logos mb-6 />
-        <el-card mx-auto my-0 w-600px>
+        <el-card v-loading="isLoading" mx-auto my-0 w-600px>
             <el-scrollbar ref="listsScrollBar" wrap-style="height: calc(100vh - 80px - 120px - 100px - 40px)" @scroll="onScroll">
                 <div v-for="(item, index) in lists" :key="index" flex--c text-left lh-34px>
                     <span class="i-carbon-strawberry" mr-10px></span>
@@ -17,14 +17,10 @@
                 </div>
             </el-scrollbar>
         </el-card>
-        <client-only>
-            <Loading v-model:active="isLoading" color="#00ab00" loader="dots"></Loading>
-        </client-only>
     </div>
 </template>
 
 <script setup lang="ts">
-import Loading from 'vue-loading-overlay'
 import { appName } from '~/constants'
 import type { Article, ArticleLists } from '~/types'
 
