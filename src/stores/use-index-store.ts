@@ -23,11 +23,8 @@ const useIndexStore = defineStore('indexStore', () => {
         state.name = name
     }
     const fetchBlog = async (config: ApiConfig = {}) => {
-        const { code, data } = await $fetch<ArticleList>('/api/article/list', {
-            method: 'GET',
-            query: config,
-        })
-        if (code === 200)
+        const data = await useHttp().$get<Nullable<Article[]>>('/api/article/list', config)
+        if (data)
             state.blog = data
     }
 

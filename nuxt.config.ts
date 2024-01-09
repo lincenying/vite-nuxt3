@@ -76,10 +76,10 @@ export default defineNuxtConfig({
 
     imports: {
         presets: [
-            {
-                from: 'vue-loading-overlay',
-                imports: ['useLoading'],
-            },
+            // {
+            //     from: 'vue-loading-overlay',
+            //     imports: ['useLoading'],
+            // },
         ],
     },
 })

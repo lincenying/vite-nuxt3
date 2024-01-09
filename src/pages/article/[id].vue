@@ -16,25 +16,20 @@
 <script setup lang="ts">
 import { isNumber } from '@lincy/utils'
 import { appName } from '~/constants'
-import type { ArticleDetail, ArticleLists } from '~/types'
+import type { Article, ListsData } from '~/types'
 
 const router = useRouter()
 const id = useRouteParam('id')
 
-const { data } = await useFetch<ArticleDetail>(`/api/article/detail`, {
-    key: `article-detail-${id.value}`,
-    params: {
-        id,
-    },
-})
+const { data } = await useHttp().get<Article>(`/api/article/detail`, { id }, { key: `article-detail-${id.value}` })
 
-const detail = computed(() => data.value?.data)
+const detail = computed(() => data.value)
 
 // 更新列表数据 ===>
-const { data: posts } = useNuxtData<ArticleLists>('article-lists')
+const { data: posts } = useNuxtData<ListsData>('article-lists')
 console.log('🚀 ~ file: [id].vue:35 ~ posts:', posts)
 
-const list = posts.value?.data.list || []
+const list = posts.value?.list || []
 const index = list.findIndex(item => item.c_id === Number(id.value))
 if (isNumber(index) && index > -1) {
     list.splice(index, 1, {

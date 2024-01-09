@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 import { appName } from '~/constants'
-import type { Article, ArticleLists } from '~/types'
+import type { Article, ListsData } from '~/types'
 
 const router = useRouter()
 
@@ -35,21 +35,14 @@ const lists = ref<Article[]>([])
 const page = ref(1)
 let hasNext = $ref(false)
 
-const { data, pending } = await useFetch<ArticleLists>('/api/article/lists', {
-    key: `article-lists`,
-    params: {
-        page,
-        limit: 15,
-    },
-    headers: useRequestHeaders(['cookie']),
-})
+const { data, pending } = await useHttp().get<ListsData>('/api/article/lists', { page, limit: 15 }, { key: `article-lists` })
 
 const isLoading = useDelay(pending, 300)
 
 watch(() => data.value, (newData) => {
-    if (newData?.code === 200) {
-        lists.value = lists.value.concat(newData.data.list || [])
-        hasNext = newData.data.hasNext
+    if (newData) {
+        lists.value = lists.value.concat(newData.list || [])
+        hasNext = newData.hasNext
     }
 }, {
     immediate: true,

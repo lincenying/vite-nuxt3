@@ -183,7 +183,7 @@ export interface UserCookies {
     [propName: string]: any
 }
 
-export interface Data {
+export interface ListsData {
     list: Article[]
     total: number
     page: number
@@ -195,7 +195,7 @@ export interface Data {
 
 export interface ArticleLists {
     code: number
-    data: Data
+    data: ListsData
 }
 
 export interface ArticleList {
