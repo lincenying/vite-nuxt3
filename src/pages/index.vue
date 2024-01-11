@@ -38,11 +38,11 @@ const page = ref(1)
 let hasPrev = $ref(false)
 let hasNext = $ref(false)
 
-const { data, pending } = await useHttp().get<ListsData>('/api/article/lists', { page, limit: 15 }, { key: `article-lists` })
+const { data: posts, pending } = await useHttp().get<ListsData>('/api/article/lists', { page, limit: 15 }, { key: `article-lists` })
 
 const isLoading = useDelay(pending, 300)
 
-watch(() => data.value, (newData) => {
+watch(() => posts.value, (newData) => {
     if (newData) {
         lists.value = newData.list || []
         hasPrev = newData.hasPrev

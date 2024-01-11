@@ -5,7 +5,7 @@ interface StateType {
     counter: number
     name: string
     isAdmin: boolean
-    blog: Article[]
+    posts: Article[]
 }
 
 const useIndexStore = defineStore('indexStore', () => {
@@ -13,7 +13,7 @@ const useIndexStore = defineStore('indexStore', () => {
         counter: 0,
         name: 'Eduardo',
         isAdmin: true,
-        blog: [],
+        posts: [],
     })
 
     const increment = () => {
@@ -22,17 +22,19 @@ const useIndexStore = defineStore('indexStore', () => {
     const updateName = (name: string) => {
         state.name = name
     }
-    const fetchBlog = async (config: ApiConfig = {}) => {
+    const fetchPost = async (config: ApiConfig = {}) => {
         const data = await useHttp().$get<Nullable<Article[]>>('/api/article/list', config)
         if (data)
-            state.blog = data
+            state.posts = data
+
+        return data
     }
 
     return {
         ...toRefs(state),
         increment,
         updateName,
-        fetchBlog,
+        fetchPost,
     }
 })
 export default useIndexStore
