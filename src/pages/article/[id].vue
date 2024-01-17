@@ -1,7 +1,7 @@
 <template>
     <div>
         <Logos mb-6 />
-        <el-card mx-auto my-0 w-600px>
+        <el-card v-loading="isLoading" mx-auto my-0 w-600px>
             <div mx-3 mb-3>
                 <span class="text-sm btn" @click="router.go(-1)"> Back </span>
             </div>
@@ -21,7 +21,9 @@ import type { Article, ListsData } from '~/types'
 const router = useRouter()
 const id = useRouteParam('id')
 
-const { data } = await useHttp().get<Article>(`/api/article/detail`, { id }, { key: `article-detail-${id.value}` })
+const { data, pending } = await useHttp().get<Article>(`/api/article/detail`, { id }, { key: `article-detail-${id.value}` })
+
+const isLoading = useDelay(pending, 100)
 
 const detail = computed(() => data.value)
 
