@@ -13,7 +13,9 @@
     "start:generate": "npx serve .output/public",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "lint:ts": "vue-tsc --noEmit"
+    "lint:ts": "vue-tsc --noEmit",
+    "lint:css": "stylelint '**/*.{css,scss}' --fix",
+    "prepare": "sh simple-git-hooks.sh"
   },
   "devDependencies": {
     "@element-plus/nuxt": "^1.0.7",
@@ -36,10 +38,12 @@
     "eslint": "npm:eslint-ts-patch@8.56.0-0",
     "eslint-plugin-format": "^0.1.0",
     "eslint-ts-patch": "8.56.0-0",
+    "lint-staged": "^15.2.1",
     "md5": "^2.3.0",
     "nuxt": "^3.9.3",
     "pinia": "^2.1.7",
     "sass": "^1.70.0",
+    "simple-git-hooks": "^2.9.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.12",
     "vue-tsc": "^1.8.27"
@@ -50,5 +54,12 @@
         "rollup"
       ]
     }
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{[jt]s?(x),vue,md}": "eslint --fix",
+    "*.{css,scss}": "stylelint --fix"
   }
 }
