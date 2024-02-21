@@ -48,10 +48,8 @@ export function useLockFn(fn: AnyFn, autoUnlock: boolean | string = 'auto') {
  * @param width 图片宽度
  * @returns 图片地址
  */
-export function useAvatar(email?: string, width?: number) {
-    email = email || '123456'
+export function useAvatar(email: string = '123456', width: number = 256) {
     email = decodeURIComponent(email)
-    width = width || 256
     // return `https://cdn.v2ex.com/gravatar/${md5(email)}?s=${width}&d=identicon&r=g`
     // return `https://dn-qiniu-avatar.qbox.me/avatar/${md5(email)}?s=${width}&d=identicon&r=g`
     // return `https://fdn.geekzu.org/avatar/${md5(email)}?s=${width}&d=identicon&r=g`

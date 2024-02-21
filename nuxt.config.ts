@@ -46,7 +46,9 @@ export default defineNuxtConfig({
             ignore: [],
         },
         routeRules: {
-            '/api/**': { proxy: 'https://php.mmxiaowu.com/api/fetch/**' },
+            '/api/**': {
+                proxy: 'https://php.mmxiaowu.com/api/fetch/**',
+            },
         },
     },
 

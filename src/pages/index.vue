@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
 import { appName } from '~/constants'
-import type { Article, ArticleLists, ListsData } from '~/types'
+import type { Article, ListsData } from '~/types'
 
 const router = useRouter()
 
@@ -33,18 +33,18 @@ const { counter, name } = storeToRefs(indexStore)
 
 const { count, inc, dec } = useCount()
 
-const lists = ref<Article[]>([])
-const page = ref(1)
+let lists = $ref<Article[]>([])
+let page = $ref(1)
 let hasPrev = $ref(false)
 let hasNext = $ref(false)
 
-const { data: posts, pending } = await useHttp().get<ListsData>('/api/article/lists', { page, limit: 15 }, { key: `article-lists` })
+const { data: posts, pending } = await useHttp().get<ListsData>('/api/article/lists', { page: $$(page), limit: 15 }, { key: `article-lists` })
 
 const isLoading = useDelay(pending, 300)
 
 watch(() => posts.value, (newData) => {
     if (newData) {
-        lists.value = newData.list || []
+        lists = newData.list || []
         hasPrev = newData.hasPrev
         hasNext = newData.hasNext
     }
@@ -57,12 +57,12 @@ setTimeout(() => {
 }, 2000)
 
 function handlePrev() {
-    page.value = page.value - 1
+    page = page - 1
     indexStore.increment()
     dec()
 }
 function handleNext() {
-    page.value = page.value + 1
+    page = page + 1
     indexStore.increment()
     inc()
 }
