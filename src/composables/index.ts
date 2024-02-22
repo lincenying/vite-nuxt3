@@ -65,7 +65,7 @@ export function useAvatar(email: string = '123456', width: number = 256) {
  * showMsg({ type: 'success' | 'warning' | 'info' | 'error', content: 'content'})
  * ```
  */
-export function showMsg(config: Obj | string) {
+export function showMsg(config: Objable | string) {
     let content, type: 'success' | 'warning' | 'info' | 'error'
     if (!config) {
         content = '接口返回数据错误'
