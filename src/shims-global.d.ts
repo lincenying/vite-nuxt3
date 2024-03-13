@@ -52,20 +52,9 @@ declare interface ResDataLists<T> {
  * 接口返回模板里的 Data 数据 - 不含分页的列表
  */
 declare interface ResDataList<T> {
-    data: T
-}
-
-/**
- * Api 浏览器端封装类型
- */
-declare interface ApiClientReturn {
-    get<T>(url: string, params?: Obj, headers?: Obj): Promise<ResData<T>>
-    post<T>(url: string, data?: Obj, headers?: Obj): Promise<ResData<T>>
-    file<T>(url: string, data?: Obj, headers?: Obj): Promise<ResData<T>>
+    data: T[]
 }
 
 declare interface Window {
-    $$api: ApiClientReturn
-    editormd: any
-    postEditor: any
+
 }

@@ -14,7 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import { isNumber } from '@lincy/utils'
 import { appName } from '~/constants'
 import type { Article, ListsData } from '~/types'
 
@@ -33,7 +32,7 @@ console.log('🚀 ~ file: [id].vue:35 ~ posts:', posts)
 
 const list = posts.value?.list || []
 const index = list.findIndex(item => item.c_id === Number(id.value))
-if (isNumber(index) && index > -1) {
+if (index > -1) {
     list.splice(index, 1, {
         ...list[index],
         c_title: `${list[index].c_title} [clicked]`,

@@ -40,11 +40,6 @@ export default defineNuxtConfig({
                 target: 'esnext',
             },
         },
-        prerender: {
-            crawlLinks: false,
-            routes: ['/'],
-            ignore: [],
-        },
         routeRules: {
             '/api/**': {
                 proxy: 'https://php.mmxiaowu.com/api/fetch/**',
@@ -86,5 +81,11 @@ export default defineNuxtConfig({
             //     imports: ['useLoading'],
             // },
         ],
+    },
+
+    hooks: {
+        'prepare:types': ({ references }) => {
+            references.push({ types: '@lincy/utils' })
+        },
     },
 })

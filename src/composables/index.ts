@@ -81,23 +81,3 @@ export function showMsg(config: Objable | string) {
     }
     ElMessage[type](content)
 }
-
-/**
- *
- * @param cookies cookies字符串
- * @returns object
- */
-export function utilsParseCookies(cookies: string): { [key: string]: string } {
-    const cookieArr = cookies.split(';')
-    const cookieObj: { [key: string]: string } = {}
-    cookieArr.forEach((cookie) => {
-        const [key, value] = cookie.split('=')
-        if (key && value) {
-            const cookieKey = key.trim()
-            const cookieValue = decodeURIComponent(value.trim())
-            cookieObj[cookieKey] = cookieValue
-        }
-    })
-
-    return cookieObj
-}

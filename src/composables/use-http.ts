@@ -5,9 +5,9 @@ type UrlType = string | Request | Ref<string | Request> | (() => string | Reques
 
 export interface RequestOptions {
     method?: any
-    headers?: Record<string, string> | [key: string, value: string][] | Headers
+    headers?: Objable<string> | [key: string, value: string][] | Headers
     key?: string
-    body?: RequestInit['body'] | Record<string, any>
+    body?: RequestInit['body'] | Objable
 }
 
 async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: RequestOptions) {
@@ -92,7 +92,7 @@ export default () => {
          * @param url api地址
          * @param params 请求参数
          * @param option 包含 method, headers, body 参数
-         * @returns $fetch
+         * @returns T
          */
         $get: <T>(url: string, params?: SearchParameters, option?: RequestOptions) => {
             return _fetch<T>(url, params, { method: 'GET', ...option })
@@ -102,17 +102,29 @@ export default () => {
          * @param url api地址
          * @param params 请求参数
          * @param option 包含 method, headers, body 参数
-         * @returns $fetch
+         * @returns T
          */
         $post: <T>(url: string, params?: SearchParameters, option?: RequestOptions) => {
             return _fetch<T>(url, params, { method: 'POST', ...option })
         },
+
         /**
          * useFetch.GET 封装
          * @param url api地址
          * @param params 请求参数
          * @param option 包含 method, headers, key, body 参数
-         * @returns useFetch
+         * @returns T
+         * @description
+         * ```
+         *    type AsyncData<DataT, ErrorT> = {
+         *      data: Ref<DataT | null>
+         *      pending: Ref<boolean>
+         *      refresh: (opts?: AsyncDataExecuteOptions) => Promise<void>
+         *      execute: (opts?: AsyncDataExecuteOptions) => Promise<void>
+         *      error: Ref<ErrorT | null>
+         *      status: Ref<AsyncDataRequestStatus>
+         *    }
+         * ```
          */
         get: <T>(url: UrlType, params?: SearchParameters, option?: RequestOptions) => {
             return _useFetch<T>(url, params, { method: 'GET', ...option })
@@ -123,6 +135,17 @@ export default () => {
          * @param params 请求参数
          * @param option 包含 method, headers, key, body 参数
          * @returns useFetch
+         * @description
+         * ```
+         *  type AsyncData<DataT, ErrorT> = {
+         *      data: Ref<DataT | null>
+         *      pending: Ref<boolean>
+         *      refresh: (opts?: AsyncDataExecuteOptions) => Promise<void>
+         *      execute: (opts?: AsyncDataExecuteOptions) => Promise<void>
+         *      error: Ref<ErrorT | null>
+         *      status: Ref<AsyncDataRequestStatus>
+         *  }
+         * ```
          */
         post: <T>(url: UrlType, params?: SearchParameters, option?: RequestOptions) => {
             return _useFetch<T>(url, params, { method: 'POST', ...option })
