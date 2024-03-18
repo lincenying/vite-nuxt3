@@ -1,6 +1,8 @@
 import { pwa } from './src/config/pwa'
 import { appDescription } from './src/constants/index'
 
+// import { viteCss as vite } from './nuxt.config.vite'
+
 export default defineNuxtConfig({
     srcDir: 'src',
     modules: [
@@ -88,4 +90,6 @@ export default defineNuxtConfig({
             references.push({ types: '@lincy/utils' })
         },
     },
+
+    // vite,
 })
