@@ -38,7 +38,7 @@ if (index > -1) {
         c_title: `${list[index].c_title} [clicked]`,
     })
 }
-// 更新列表数据 <===
+// 更新列表数据 <===s
 
 useHead({
     title: `${detail.value?.c_title} - ${appName}`,
