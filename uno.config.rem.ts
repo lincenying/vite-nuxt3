@@ -1,7 +1,7 @@
-import { datavConfig } from '@lincy/base-config'
+import { webRemConfig } from '@lincy/base-config'
 import { fontSize } from './src/design.config'
 
-const baseConfig = datavConfig({ baseFontSize: fontSize })
+const baseConfig = webRemConfig({ baseFontSize: fontSize })
 
 export default {
     ...baseConfig,

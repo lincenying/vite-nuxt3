@@ -12,6 +12,14 @@
 -   🦾 当然是 TypeScript.
 -   📲 [PWA](https://github.com/vite-pwa/nuxt) 具有离线支持和自动更新行为
 
+## Rem 自适应
+
+-   删除`uno.config.ts`, 将`uno.config.rem.ts`重命名为`uno.config.ts`
+-   在`nuxt.config.ts`文件中, 删除`// import { viteCss as vite } from './nuxt.config.vite'` 和 `// vite,` 这两行的注释
+-   在`src/assets/scss/style.scss`中引入`src/assets/scss/global-rem.scss`
+-   根据设计稿尺寸, 设置`src/design.config.ts`下相关参数
+-   在 CSS 中按设计稿尺寸书写即可, 单位依然用`px`
+
 ## Plugins
 
 ### Nuxt Modules

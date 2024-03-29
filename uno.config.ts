@@ -1,3 +1,3 @@
-import { adminConfig } from '@lincy/base-config'
+import { webConfig } from '@lincy/base-config'
 
-export default adminConfig()
+export default webConfig()

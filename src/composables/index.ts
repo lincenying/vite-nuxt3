@@ -17,26 +17,34 @@ export function useGlobal() {
  * 竞态锁
  * @param fn 回调函数
  * @param autoUnlock 是否自动解锁
- * @returns void
+ * @description
  * ```
  * autoUnlock === true 不管 fn 返回什么, 都自动解锁
  * autoUnlock === false 不管 fn 返回什么, 都不自动解锁
  * autoUnlock === 'auto' 当 fn 返回 false 时, 不自动解锁, 返回其他值时, 自动解锁
  * ```
+ * @example
+ * ```
+ * const Fn = useLockFn(async (key) => {
+ *  console.log(key)
+ * }
+ *
+ * <div v-on:click="Fn(123)"></div>
+ * ```
  */
-export function useLockFn(fn: AnyFn, autoUnlock: boolean | string = 'auto') {
-    const [lock, toggleLock] = useToggle(false)
+export function useLockFn(fn: AnyFn, autoUnlock: boolean | 'auto' = 'auto') {
+    const lock = ref(false)
     return async (...args: any[]) => {
         if (lock.value)
             return
-        toggleLock(true)
+        lock.value = true
         try {
             const $return: any = await fn(...args)
             if (autoUnlock === true || (autoUnlock === 'auto' && $return !== false))
-                toggleLock(false)
+                lock.value = false
         }
         catch (e) {
-            toggleLock(false)
+            lock.value = false
             throw e
         }
     }
