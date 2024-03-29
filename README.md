@@ -1,7 +1,7 @@
 ## Features
 
 -   💚 [Nuxt 3](https://nuxt.com/) - SSR、ESR、基于文件的路由、组件自动导入、模块等。
--   ⚡️ Vite - 即时 HMR.
+-   ⚡️ [Vite](https://cn.vitejs.dev/) - 即时 HMR.
 -   🎨 [UnoCSS](https://github.com/unocss/unocss) - 即时按需原子 CSS 引擎
 -   😃 使用纯 CSS 中任何图标集的图标，由 [UnoCSS](https://github.com/unocss/unocss) 驱动.
 -   🔥 `<script setup lang="ts">` 语法.
@@ -25,15 +25,17 @@
 ### Nuxt Modules
 
 -   [VueUse](https://github.com/vueuse/vueuse) - 好用的组合 API 集合.
+-   [ElementPlus](https://github.com/element-plus/element-plus) - 基于 Vue 3，面向设计师和开发者的组件库.
 -   [ColorMode](https://github.com/nuxt-modules/color-mode) - Nuxt 可轻松实现具有自动检测功能的深色和浅色模式.
 -   [UnoCSS](https://github.com/unocss/unocss) - 即时按需原子 CSS 引擎.
 -   [Pinia](https://github.com/vuejs/pinia) - 直观、类型安全、轻便且灵活的 Vue 状态管理.
+-   [VueMacros](https://github.com/vue-macros/vue-macros) - 扩展更多的宏和语法糖.
 -   [VitePWA](https://github.com/vite-pwa/nuxt) - 适用于 Nuxt 3 的零配置 PWA 插件.
 -   [DevTools](https://github.com/nuxt/devtools) - 释放 Nuxt 开发者体验.
 
 ## IDE
 
-建议使用 [VS Code](https://code.visualstudio.com/) 和 [Volar](https://github.com/johnsoncodehk/volar) 以获得最佳体验（您可能需要禁用 [Vetur](https://vuejs.github.io/vetur/) 如果你有的话）。
+建议使用 [VS Code](https://code.visualstudio.com/) 和 [Volar](https://github.com/vuejs/language-tools) 以获得最佳体验（您可能需要禁用 [Vetur](https://vuejs.github.io/vetur/) 如果你有的话）。
 
 ## Variations
 
