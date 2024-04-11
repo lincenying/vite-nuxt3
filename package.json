@@ -30,10 +30,10 @@
     "@nuxtjs/color-mode": "^3.3.3",
     "@pinia/nuxt": "^0.5.1",
     "@types/md5": "^2.3.5",
-    "@unocss/eslint-config": "^0.58.9",
-    "@unocss/nuxt": "^0.58.9",
+    "@unocss/eslint-config": "^0.59.0",
+    "@unocss/nuxt": "^0.59.0",
     "@vite-pwa/nuxt": "^0.6.0",
-    "@vue-macros/nuxt": "^1.9.28",
+    "@vue-macros/nuxt": "^1.9.29",
     "@vueuse/nuxt": "^10.9.0",
     "consola": "^3.2.3",
     "element-plus": "^2.6.3",
@@ -42,14 +42,14 @@
     "eslint-ts-patch": "8.57.0-0",
     "lint-staged": "^15.2.2",
     "md5": "^2.3.0",
-    "nuxt": "^3.11.1",
+    "nuxt": "^3.11.2",
     "pinia": "^2.1.7",
     "postcss-px-to-viewport-8-plugin": "^1.2.5",
-    "sass": "^1.72.0",
+    "sass": "^1.74.1",
     "simple-git-hooks": "^2.11.1",
-    "typescript": "^5.4.3",
-    "vite": "^5.2.7",
-    "vue-tsc": "^2.0.7"
+    "typescript": "^5.4.5",
+    "vite": "^5.2.8",
+    "vue-tsc": "^2.0.12"
   },
   "pnpm": {
     "peerDependencyRules": {
