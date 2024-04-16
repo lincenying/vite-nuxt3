@@ -16,8 +16,9 @@ export function useAutoScroll(key: string) {
 
     onActivated(() => {
         const scrollBar = templateRef(key) as unknown as Ref<Pick<ScrollbarInstance, 'setScrollTop'>>
-        if (scrollTop.value)
+        if (scrollTop.value) {
             scrollBar.value?.setScrollTop(scrollTop.value)
+        }
     })
 
     return {

@@ -17,8 +17,9 @@ const useUserStore = defineStore('user', () => {
      * @param name - new name to set
      */
     function setNewName(name: string) {
-        if (savedName.value)
+        if (savedName.value) {
             previousNames.value.add(savedName.value)
+        }
 
         savedName.value = name
     }
@@ -32,5 +33,6 @@ const useUserStore = defineStore('user', () => {
 
 export default useUserStore
 
-if (import.meta.hot)
+if (import.meta.hot) {
     import.meta.hot.accept(acceptHMRUpdate(useUserStore, import.meta.hot))
+}

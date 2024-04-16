@@ -14,8 +14,9 @@ export function useDelay(pending: Ref<boolean>, timeout: number) {
             }, timeout)
         }
         else {
-            if (timer)
+            if (timer) {
                 clearTimeout(timer)
+            }
             isLoading.value = false
         }
     })

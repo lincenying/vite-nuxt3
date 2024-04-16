@@ -1,5 +1,4 @@
 import viewport from 'postcss-px-to-viewport-8-plugin'
-import type { CSSOptions, UserConfigFnObject } from 'vite'
 import type { ViteConfig } from 'nuxt/schema'
 import { charsetRemoval, designHeight, designMultiple, designWidth, fontSize, minWidth, minWindow } from './src/design.config'
 
@@ -28,8 +27,9 @@ export const viteCss: ViteConfig = {
                     viewportWidth: (file: string) => {
                         // 字号 * 100
                         let viewportWidth = fontSize * 100
-                        if (file.includes('element-plus'))
+                        if (file.includes('element-plus')) {
                             viewportWidth = fontSize * (1920 / designWidth * 100)
+                        }
 
                         return viewportWidth
                     }, // UI设计稿的宽度

@@ -1,5 +1,5 @@
 import { acceptHMRUpdate } from 'pinia'
-import type { ApiConfig, Article, ArticleList } from '~/types'
+import type { ApiConfig, Article } from '~/types'
 
 interface StateType {
     counter: number
@@ -24,8 +24,9 @@ const useIndexStore = defineStore('indexStore', () => {
     }
     const fetchPost = async (config: ApiConfig = {}) => {
         const data = await useHttp().$get<Nullable<Article[]>>('/api/article/list', config)
-        if (data)
+        if (data) {
             state.posts = data
+        }
 
         return data
     }
@@ -39,5 +40,6 @@ const useIndexStore = defineStore('indexStore', () => {
 })
 export default useIndexStore
 
-if (import.meta.hot)
+if (import.meta.hot) {
     import.meta.hot.accept(acceptHMRUpdate(useIndexStore, import.meta.hot))
+}
