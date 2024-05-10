@@ -4,5 +4,11 @@ export default lincy(
     {
         unocss: true,
         formatters: true,
+        overrides: {
+            ignores: [
+                '**/assets',
+                '**/static',
+            ],
+        },
     },
 )
