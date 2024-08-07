@@ -2,7 +2,13 @@ import lincy from '@lincy/eslint-config'
 
 export default lincy(
     {
-        unocss: true,
+        unocss: false,
         formatters: true,
+        overrides: {
+            ignores: [
+                '**/assets',
+                '**/static',
+            ],
+        },
     },
 )
