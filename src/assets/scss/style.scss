@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 html,
 body,
 #nuxt-root {
@@ -23,4 +25,22 @@ body {
     .el-scrollbar {
         padding-right: 10px;
     }
+}
+
+$margin-bottom: (
+    4: 4rpx,
+    8: 8rpx,
+    24: 24rpx,
+    32: 32rpx,
+    37: 37rpx,
+    40: 40rpx,
+    60: 60rpx
+);
+
+@mixin margin-bottom($key) {
+    margin-bottom: map.get($margin-bottom, $key);
+}
+
+.mb4 {
+    @include margin-bottom(4);
 }

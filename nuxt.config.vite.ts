@@ -1,5 +1,7 @@
-import viewport from 'postcss-px-to-viewport-8-plugin'
 import type { ViteConfig } from 'nuxt/schema'
+
+import viewport from 'postcss-px-to-viewport-8-plugin'
+
 import { charsetRemoval, designHeight, designMultiple, designWidth, fontSize, minWidth, minWindow } from './src/design.config'
 
 export const viteCss: ViteConfig = {

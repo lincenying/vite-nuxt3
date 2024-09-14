@@ -14,8 +14,9 @@
 </template>
 
 <script setup lang="ts">
-import { appName } from '~/constants'
 import type { Article, ListsData } from '~/types'
+
+import { appName } from '@/constants'
 
 const router = useRouter()
 const id = useRouteParam('id')

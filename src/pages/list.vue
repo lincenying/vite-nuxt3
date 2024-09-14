@@ -14,8 +14,9 @@
 
 <script setup lang="ts">
 import type { ScrollbarInstance } from '~/composables/scroll'
-import { appName } from '~/constants'
 import type { Article } from '~/types'
+
+import { appName } from '@/constants'
 
 const indexStore = useIndexStore()
 const { posts } = storeToRefs(indexStore)

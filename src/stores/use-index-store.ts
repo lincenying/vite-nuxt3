@@ -1,5 +1,6 @@
-import { acceptHMRUpdate } from 'pinia'
 import type { ApiConfig, Article } from '~/types'
+
+import { acceptHMRUpdate } from 'pinia'
 
 interface StateType {
     counter: number

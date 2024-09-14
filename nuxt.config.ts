@@ -5,6 +5,7 @@ import { appDescription } from './src/constants/index'
 
 export default defineNuxtConfig({
     srcDir: 'src',
+
     modules: [
         '@element-plus/nuxt',
         '@nuxtjs/color-mode',
@@ -85,11 +86,12 @@ export default defineNuxtConfig({
         ],
     },
 
+    // vite,
     hooks: {
         'prepare:types': ({ references }) => {
             references.push({ types: '@lincy/utils' })
         },
     },
 
-    // vite,
+    compatibilityDate: '2024-09-14',
 })

@@ -1,5 +1,6 @@
-import md5 from 'md5'
 import type { SearchParameters } from 'ofetch'
+
+import md5 from 'md5'
 
 type UrlType = string | Request | Ref<string | Request> | (() => string | Request)
 
@@ -30,7 +31,8 @@ async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: R
         },
         onRequestError({ error }) {
             ElMessage.closeAll()
-            error && ElMessage.error('Sorry, The Data Request Failed')
+            if (error)
+                ElMessage.error('Sorry, The Data Request Failed')
             // Handle the request errors
         },
         onResponse({ response }) {
@@ -67,7 +69,8 @@ async function _fetch<T>(url: UrlType, params?: SearchParameters, options?: Requ
         },
         onRequestError({ error }) {
             ElMessage.closeAll()
-            error && ElMessage.error('Sorry, The Data Request Failed')
+            if (error)
+                ElMessage.error('Sorry, The Data Request Failed')
             // Handle the request errors
         },
         onResponse({ response }) {

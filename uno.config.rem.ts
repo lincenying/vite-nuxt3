@@ -1,4 +1,5 @@
 import { webRemConfig } from '@lincy/base-config'
+
 import { fontSize } from './src/design.config'
 
 const baseConfig = webRemConfig({ baseFontSize: fontSize })
