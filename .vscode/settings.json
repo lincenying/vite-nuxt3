@@ -44,7 +44,19 @@
     "markdown",
     "json",
     "jsonc",
-    "yaml"
+    "yaml",
+    "toml",
+    "xml",
+    "svg",
+    "gql",
+    "graphql",
+    "astro",
+    "svelte",
+    "css",
+    "less",
+    "scss",
+    "pcss",
+    "postcss"
   ],
   "stylelint.validate": [
     "css",
