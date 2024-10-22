@@ -21,9 +21,9 @@ import { appName } from '@/constants'
 const router = useRouter()
 const id = useRouteParam('id')
 
-const { data, pending } = await useHttp().get<Article>(`/api/article/detail`, { id }, { key: `article-detail-${id.value}` })
+const { data, status } = await useHttp().get<Article>(`/api/article/detail`, { id }, { key: `article-detail-${id.value}` })
 
-const isLoading = useDelay(pending, 100)
+const isLoading = useDelay(status, 100)
 
 const detail = computed(() => data.value)
 

@@ -36,9 +36,9 @@ const lists = ref<Article[]>([])
 const page = ref(1)
 let hasNext = $ref(false)
 
-const { data: posts, pending } = await useHttp().get<ListsData>('/api/article/lists', { page, limit: 15 }, { key: `article-lists` })
+const { data: posts, status } = await useHttp().get<ListsData>('/api/article/lists', { page, limit: 15 }, { key: `article-lists` })
 
-const isLoading = useDelay(pending, 300)
+const isLoading = useDelay(status, 300)
 
 watch(() => posts.value, (newData) => {
     if (newData) {
