@@ -1,7 +1,7 @@
-import { pwa } from './src/config/pwa'
-import { appDescription } from './src/constants/index'
-
 // import { viteCss as vite } from './nuxt.config.vite'
+import { pwa } from './src/config/pwa'
+
+import { appDescription } from './src/constants/index'
 
 export default defineNuxtConfig({
     srcDir: 'src',

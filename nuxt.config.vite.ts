@@ -16,6 +16,7 @@ export const viteCss: ViteConfig = {
                         $vmMinWindow: ${minWindow};
                         $vmFontSize: ${fontSize};
                     `,
+                api: 'modern-compiler',
             },
         },
         postcss: {
