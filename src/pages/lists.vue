@@ -1,19 +1,19 @@
 <template>
-    <div>
-        <Logos mb-6 />
-        <el-card v-loading="isLoading" mx-auto my-0 w-600px>
-            <el-scrollbar ref="listsScrollBar" wrap-style="height: calc(100vh - 80px - 120px - 100px - 40px)" @scroll="onScroll">
+    <div h-1px flex-auto flex flex-col items-center>
+        <Logos />
+        <el-card v-loading="isLoading" w-600px h-1px flex-auto>
+            <el-scrollbar ref="listsScrollBar" wrap-style="height: 100%" @scroll="onScroll">
                 <div v-for="(item, index) in lists" :key="index" flex--c text-left lh-34px>
                     <span class="i-carbon-strawberry" mr-10px></span>
                     <NuxtLink :to="`/article/${item.c_id}`">{{ item.c_title }}</NuxtLink>
                 </div>
                 <div flex-cc gap-10px>
-                    <span v-if="hasNext" class="m-3 text-sm btn" @click="handleNext"> Click Load More </span>
+                    <span v-if="hasNext" class="m-12px text-14px lh-20px btn" @click="handleNext"> Click Load More </span>
                 </div>
                 <div>User: {{ name }} - Click: {{ counter }} - CountState: {{ count }}</div>
                 <div flex-cc gap-10px>
                     <button class="i-twemoji:backhand-index-pointing-right" />
-                    <span class="m-3 text-sm btn" @click="handleToList"> Go To List </span>
+                    <span class="m-12px text-14px lh-20px btn" @click="handleToList"> Go To List </span>
                 </div>
             </el-scrollbar>
         </el-card>

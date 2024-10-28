@@ -1,11 +1,11 @@
 <template>
-    <div>
-        <Logos mb-6 />
-        <el-card v-loading="isLoading" mx-auto my-0 w-600px>
-            <div mx-3 mb-3>
-                <span class="text-sm btn" @click="router.go(-1)"> Back </span>
+    <div h-1px flex-auto flex flex-col items-center>
+        <Logos />
+        <el-card v-loading="isLoading" w-600px h-1px flex-auto>
+            <div mx-12px mb-12px>
+                <span class="text-14px lh-20px btn" @click="router.go(-1)"> Back </span>
             </div>
-            <el-scrollbar wrap-style="height: calc(100vh - 80px - 120px - 100px - 40px - 36px)">
+            <el-scrollbar wrap-style="height: 100%">
                 <div text="center 18px" mb-30px font-800>{{ detail?.c_title }}</div>
                 <div v-html="detail?.c_content"></div>
             </el-scrollbar>

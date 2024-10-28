@@ -1,8 +1,8 @@
 <template>
-    <main class="px-20px py-40px text-center">
+    <main class="flex flex-col h-100vh px-20px py-20px text-center">
         <slot />
         <Footer />
-        <div class="mx-auto mt-5 text-center text-sm opacity-25">
+        <div class="flex-none mx-auto mt-20px text-center text-14px lh-20px opacity-25">
             [Default Layout]
         </div>
     </main>

@@ -15,10 +15,13 @@ html.dark {
 
 body {
     /* overflow-y: scroll; */
+    font-size: 14px;
+    line-height: 1;
 }
 
 .el-card {
     .el-card__body {
+        height: 100%;
         padding-right: 10px;
     }
 

@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <Logos mb-6 />
-        <el-card mx-auto my-0 w-600px>
-            <el-scrollbar ref="listScrollBar" wrap-style="height: calc(100vh - 80px - 120px - 100px - 40px)" @scroll="onScroll">
+    <div h-1px flex-auto flex flex-col items-center>
+        <Logos />
+        <el-card w-600px h-1px flex-auto>
+            <el-scrollbar ref="listScrollBar" wrap-style="height: 100%" @scroll="onScroll">
                 <div v-for="(item, index) in posts" :key="`b${index}`" flex--c text-left lh-34px>
                     <span class="i-carbon-strawberry" mr-10px></span>
                     <NuxtLink :to="`/article/${item.c_id}`">{{ item.c_title }}</NuxtLink>

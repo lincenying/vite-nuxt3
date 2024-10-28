@@ -1,21 +1,21 @@
 <template>
-    <div>
-        <Logos v-model="model" mb-6 />
-        <el-card v-loading="isLoading" mx-auto my-0 w-600px>
-            <el-scrollbar wrap-style="height: calc(100vh - 80px - 120px - 100px - 40px)">
+    <div h-1px flex-auto flex flex-col items-center>
+        <Logos v-model="model" />
+        <el-card v-loading="isLoading" w-600px h-1px flex-auto>
+            <el-scrollbar wrap-style="height: 100%">
                 <div v-for="(item, index) in lists" :key="index" flex--c text-left lh-34px>
                     <span class="i-carbon-strawberry" mr-10px></span>
                     <NuxtLink :to="`/article/${item.c_id}`">{{ item.c_title }}</NuxtLink>
                 </div>
                 <div flex-cc gap-10px>
-                    <span v-if="hasPrev" class="m-3 text-sm btn" @click="handlePrev"> Prev </span>
-                    <span v-if="hasNext" class="m-3 text-sm btn" @click="handleNext"> Next </span>
+                    <span v-if="hasPrev" class="m-12px text-14px lh-20px btn" @click="handlePrev"> Prev </span>
+                    <span v-if="hasNext" class="m-12px text-14px lh-20px btn" @click="handleNext"> Next </span>
                 </div>
                 <div>User: {{ name }} - Click: {{ counter }} - CountState: {{ count }} - Model: {{ model }}</div>
                 <div flex-cc gap-10px>
                     <button class="i-twemoji:backhand-index-pointing-right" />
-                    <span class="m-3 text-sm btn" @click="handleToLists"> Go To Lists </span>
-                    <span class="m-3 text-sm btn" @click="handleToList"> Go To List </span>
+                    <span class="m-12px text-14px lh-20px btn" @click="handleToLists"> Go To Lists </span>
+                    <span class="m-12px text-14px lh-20px btn" @click="handleToList"> Go To List </span>
                 </div>
             </el-scrollbar>
         </el-card>
@@ -39,7 +39,7 @@ let page = $ref(1)
 let hasPrev = $ref(false)
 let hasNext = $ref(false)
 
-const { data: posts, status } = await useHttp().get<ListsData>('/api/article/lists', { page: $$(page), limit: 15 }, { key: `article-lists` })
+const { data: posts, status } = await useHttp().get<ListsData>('/api/article/lists', { page: $$(page), limit: 13 }, { key: `article-index` })
 
 const isLoading = useDelay(status, 300)
 

@@ -86,7 +86,16 @@ export default defineNuxtConfig({
         ],
     },
 
-    // vite,
+    vite: {
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    api: 'modern-compiler',
+                },
+            },
+        },
+        // ...vite
+    },
     hooks: {
         'prepare:types': ({ references }) => {
             references.push({ types: '@lincy/utils' })
