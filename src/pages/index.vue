@@ -1,21 +1,21 @@
 <template>
-    <div h-1px flex-auto flex flex-col items-center>
+    <div class=":uno: h-1px flex-auto flex flex-col items-center">
         <Logos v-model="model" />
-        <el-card v-loading="isLoading" w-600px h-1px flex-auto>
+        <el-card v-loading="isLoading" class=":uno: w-600px h-1px flex-auto">
             <el-scrollbar wrap-style="height: 100%">
-                <div v-for="(item, index) in lists" :key="index" flex--c text-left lh-34px>
-                    <span class="i-carbon-strawberry" mr-10px></span>
+                <div v-for="(item, index) in lists" :key="index" class=":uno: flex--c text-left lh-34px">
+                    <span class="i-carbon-strawberry mr-10px"></span>
                     <NuxtLink :to="`/article/${item.c_id}`">{{ item.c_title }}</NuxtLink>
                 </div>
                 <div flex-cc gap-10px>
-                    <span v-if="hasPrev" class="m-12px text-14px lh-20px btn" @click="handlePrev"> Prev </span>
-                    <span v-if="hasNext" class="m-12px text-14px lh-20px btn" @click="handleNext"> Next </span>
+                    <span v-if="hasPrev" class=":uno: btn m-12px text-14px lh-20px" @click="handlePrev"> Prev </span>
+                    <span v-if="hasNext" class=":uno: btn m-12px text-14px lh-20px" @click="handleNext"> Next </span>
                 </div>
                 <div>User: {{ name }} - Click: {{ counter }} - CountState: {{ count }} - Model: {{ model }}</div>
                 <div flex-cc gap-10px>
-                    <button class="i-twemoji:backhand-index-pointing-right" />
-                    <span class="m-12px text-14px lh-20px btn" @click="handleToLists"> Go To Lists </span>
-                    <span class="m-12px text-14px lh-20px btn" @click="handleToList"> Go To List </span>
+                    <button class="i-twemoji:backhand-index-pointing-right text-base" />
+                    <span class=":uno: btn m-12px text-14px lh-20px" @click="handleToLists"> Go To Lists </span>
+                    <span class=":uno: btn m-12px text-14px lh-20px" @click="handleToList"> Go To List </span>
                 </div>
             </el-scrollbar>
         </el-card>
