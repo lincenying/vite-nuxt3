@@ -7,6 +7,11 @@
   },
   // Disable the default formatter
   "editor.formatOnSave": false,
+  "eslint.options": {
+    "flags": [
+      "unstable_ts_config"
+    ]
+  },
   // Silent the stylistic rules in you IDE, but still auto fix them
   "eslint.rules.customizations": [
     // { "rule": "@stylistic/*", "severity": "off" },
