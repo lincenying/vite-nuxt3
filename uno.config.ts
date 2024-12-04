@@ -1,3 +1,3 @@
-import { webConfig } from '@lincy/base-config'
+import { webConfig } from '@lincy/unocss-base-config'
 
 export default webConfig()
