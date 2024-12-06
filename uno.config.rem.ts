@@ -1,4 +1,4 @@
-import { webRemConfig } from '@lincy/base-config'
+import { webRemConfig } from '@lincy/unocss-base-config'
 
 import { fontSize } from './src/design.config'
 
