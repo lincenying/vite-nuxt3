@@ -94,6 +94,21 @@ export default defineNuxtConfig({
                 },
             },
         },
+        build: {
+            rollupOptions: {
+                output: {
+                    manualChunks(id: string) {
+                        // 处理css分块
+                        if (id.includes('node_modules')) {
+                            return 'vendor'
+                        }
+                        if (id.includes('__uno.css')) {
+                            return 'unocss'
+                        }
+                    },
+                },
+            },
+        },
         // ...vite
     },
     hooks: {
