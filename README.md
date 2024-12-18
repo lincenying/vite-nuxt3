@@ -63,3 +63,35 @@ npx degit lincenying/vite-nuxt3 my-nuxt3-app
 cd my-nuxt3-app
 pnpm i # 如果您没有安装 pnpm，请运行：npm install -g pnpm
 ```
+
+### 开发环境
+
+```bash
+pnpm serve
+```
+
+### 生产环境
+
+```bash
+pnpm build
+```
+
+### 生产环境预览
+
+```bash
+pnpm start
+```
+
+### Lint 和修复文件
+
+```bash
+pnpm lint # eslint检测不修复
+pnpm lint:fix # eslint检测并修复
+pnpm lint:ts # ts 类型检测
+pnpm lint:css # css 检测并修复
+
+```
+
+## License
+
+[MIT]
