@@ -1,5 +1,4 @@
 import type { SearchParameters } from 'ofetch'
-
 import md5 from 'md5'
 
 type UrlType = string | Request | Ref<string | Request> | (() => string | Request)
@@ -9,12 +8,13 @@ export interface RequestOptions {
     headers?: Objable<string> | [key: string, value: string][] | Headers
     key?: string
     body?: RequestInit['body'] | Objable
+    watch?: any[] | false
 }
 
 async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: RequestOptions) {
     const headers = useRequestHeaders(['cookie'])
     const method = options?.method ?? 'GET'
-    const body = options?.body
+    const body = options?.body ?? {}
     return await useFetch<T>(url as string, {
         key: options?.key ?? md5(url as string),
         method,
@@ -25,14 +25,14 @@ async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: R
         },
         credentials: 'include',
         body: method === 'POST' ? body : undefined,
+        watch: options?.watch,
         onRequest() {
             // Set the request headers
             // options.headers = options.headers || {};
         },
         onRequestError({ error }) {
             ElMessage.closeAll()
-            if (error)
-                ElMessage.error('Sorry, The Data Request Failed')
+            error && ElMessage.error('Sorry, The Data Request Failed')
             // Handle the request errors
         },
         onResponse({ response }) {
@@ -69,8 +69,7 @@ async function _fetch<T>(url: UrlType, params?: SearchParameters, options?: Requ
         },
         onRequestError({ error }) {
             ElMessage.closeAll()
-            if (error)
-                ElMessage.error('Sorry, The Data Request Failed')
+            error && ElMessage.error('Sorry, The Data Request Failed')
             // Handle the request errors
         },
         onResponse({ response }) {
