@@ -78,11 +78,14 @@ export default defineNuxtConfig({
     },
 
     imports: {
+        // 自动导入的文件夹
+        // dirs: [],
+        // 仅导入 utils 中的 sleep 函数
         presets: [
-            // {
-            //     from: 'vue-loading-overlay',
-            //     imports: ['useLoading'],
-            // },
+            {
+                from: '@lincy/utils',
+                imports: ['sleep'],
+            },
         ],
     },
 
