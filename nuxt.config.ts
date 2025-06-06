@@ -84,7 +84,7 @@ export default defineNuxtConfig({
         presets: [
             {
                 from: '@lincy/utils',
-                imports: ['sleep'],
+                imports: ['sleep', 'UTC2Date'],
             },
         ],
     },
