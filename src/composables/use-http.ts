@@ -15,7 +15,7 @@ async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: R
     const headers = useRequestHeaders(['cookie'])
     const method = options?.method ?? 'GET'
     const body = options?.body ?? {}
-    return await useFetch<T>(url as string, {
+    return useFetch<T>(url as string, {
         key: options?.key ?? md5(url as string),
         method,
         params: { ...params },
@@ -54,7 +54,7 @@ async function _fetch<T>(url: UrlType, params?: SearchParameters, options?: Requ
     const headers = useRequestHeaders(['cookie'])
     const method = options?.method ?? 'GET'
     const body = options?.body
-    return await $fetch<T>(url as string, {
+    return $fetch<T>(url as string, {
         method,
         params: { ...params },
         headers: {

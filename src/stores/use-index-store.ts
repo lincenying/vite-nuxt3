@@ -9,7 +9,7 @@ interface StateType {
     posts: Article[]
 }
 
-const useIndexStore = defineStore('indexStore', () => {
+const useStore = defineStore('indexStore', () => {
     const state: StateType = reactive({
         counter: 0,
         name: 'Eduardo',
@@ -39,8 +39,8 @@ const useIndexStore = defineStore('indexStore', () => {
         fetchPost,
     }
 })
-export default useIndexStore
+export default useStore
 
 if (import.meta.hot) {
-    import.meta.hot.accept(acceptHMRUpdate(useIndexStore, import.meta.hot))
+    import.meta.hot.accept(acceptHMRUpdate(useStore, import.meta.hot))
 }
