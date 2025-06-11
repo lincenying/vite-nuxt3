@@ -13,9 +13,8 @@
 </template>
 
 <script setup lang="ts">
-import type { ScrollbarInstance } from '~/composables/scroll'
-import type { Article } from '~/types'
-
+import type { Article } from './index.types'
+import type { ElScrollbarType } from '~/types'
 import { appName } from '@/constants'
 
 const indexStore = useIndexStore()
@@ -30,7 +29,7 @@ console.log(todos.value?.length)
 // console.log(todos.value?.length)
 
 // 记录和还原滚动条位置
-const listScrollBar = ref<ScrollbarInstance>()
+const listScrollBar = ref<ElScrollbarType>()
 const { onScroll } = useAutoScroll('listScrollBar')
 
 useHead({

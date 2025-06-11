@@ -1,5 +1,6 @@
-import type { ApiConfig, Article } from '~/types'
+import type { Article } from '~/pages/index.types'
 
+import type { ApiConfig } from '~/types'
 import { acceptHMRUpdate } from 'pinia'
 
 interface StateType {

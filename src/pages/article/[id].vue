@@ -14,8 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Article, ListsData } from '~/types'
-
+import type { Article } from '../index.types'
 import { appName } from '@/constants'
 
 const router = useRouter()
@@ -28,7 +27,7 @@ const isLoading = useDelay(status, 100)
 const detail = computed(() => data.value)
 
 // 更新列表数据 ===>
-const { data: posts } = useNuxtData<ListsData>('article-lists')
+const { data: posts } = useNuxtData<ResDataLists<Article>>('article-lists')
 console.log('🚀 ~ file: [id].vue:35 ~ posts:', posts)
 
 const list = posts.value?.list || []
