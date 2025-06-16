@@ -1,7 +1,11 @@
+import processEnv from 'node:process'
+
 // import { viteCss as vite } from './nuxt.config.vite'
 import { pwa } from './src/config/pwa'
 
 import { appDescription } from './src/constants/index'
+
+const domain = processEnv.env.NUXT_ENV_HOST_API_URL || 'https://php.mmxiaowu.com'
 
 export default defineNuxtConfig({
     srcDir: 'src',
@@ -45,7 +49,7 @@ export default defineNuxtConfig({
         },
         routeRules: {
             '/api/**': {
-                proxy: 'https://php.mmxiaowu.com/api/fetch/**',
+                proxy: `${domain}/api/fetch/**`,
             },
         },
     },
