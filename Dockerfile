@@ -2,11 +2,9 @@ ARG NODE_VERSION=node:22-alpine
 
 # 阶段1: 构建
 FROM $NODE_VERSION AS builder
-RUN npm config set registry https://registry.npmmirror.com
-RUN npm install -g pnpm
 ENV PNPM_HOME=/pnpm-store
 ENV PATH="$PNPM_HOME:$PATH"
-RUN mkdir -p $PNPM_HOME
+RUN npm config set registry https://registry.npmmirror.com && npm install -g pnpm && mkdir -p $PNPM_HOME
 
 WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
