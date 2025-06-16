@@ -9,6 +9,7 @@ export interface RequestOptions {
     key?: string
     body?: RequestInit['body'] | Objable
     watch?: any[] | false
+    server?: boolean
 }
 
 async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: RequestOptions) {
@@ -26,6 +27,7 @@ async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: R
         credentials: 'include',
         body: method === 'POST' ? body : undefined,
         watch: options?.watch,
+        server: options?.server,
         onRequest() {
             // Set the request headers
             // options.headers = options.headers || {};

@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Article } from '../index.types'
+import type { Article } from '~/types/index.types'
 import { appName } from '@/constants'
 
 const router = useRouter()
