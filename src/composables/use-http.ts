@@ -1,5 +1,9 @@
+import type { H3Event } from 'h3'
 import type { SearchParameters } from 'ofetch'
+import { appendResponseHeader } from 'h3'
+
 import md5 from 'md5'
+import { normalizeCookiePath } from '~/utils'
 
 type UrlType = string | Request | Ref<string | Request> | (() => string | Request)
 
@@ -10,12 +14,13 @@ export interface RequestOptions {
     body?: RequestInit['body'] | Objable
     watch?: any[] | false
     server?: boolean
+    H3event?: H3Event
 }
 
 async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: RequestOptions) {
     const headers = useRequestHeaders(['cookie'])
     const method = options?.method ?? 'GET'
-    const body = options?.body ?? {}
+    const body = options?.body || {}
     return useFetch<T>(url as string, {
         key: options?.key ?? md5(url as string),
         method,
@@ -24,6 +29,7 @@ async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: R
             ...headers,
             ...options?.headers,
         },
+        timeout: 5000,
         credentials: 'include',
         body: method === 'POST' ? body : undefined,
         watch: options?.watch,
@@ -38,12 +44,17 @@ async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: R
             // Handle the request errors
         },
         onResponse({ response }) {
-            // Process the response data
+            const cookies = response.headers.getSetCookie()
+            if (options?.H3event && cookies && cookies.length > 0) {
+                for (const cookie of cookies) {
+                    appendResponseHeader(options?.H3event, 'set-cookie', normalizeCookiePath(cookie))
+                }
+            }
             if (response._data.code !== 200) {
                 ElMessage.error(response._data.message)
                 return response._data = null
             }
-            return response._data = response._data.data
+            return response._data = response._data.data || 'success'
         },
         onResponseError({ request }) {
             console.log('🚀 ~ onResponseError ~ request:', request)
@@ -55,7 +66,7 @@ async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: R
 async function _fetch<T>(url: UrlType, params?: SearchParameters, options?: RequestOptions) {
     const headers = useRequestHeaders(['cookie'])
     const method = options?.method ?? 'GET'
-    const body = options?.body
+    const body = options?.body || {}
     return $fetch<T>(url as string, {
         method,
         params: { ...params },
@@ -63,6 +74,7 @@ async function _fetch<T>(url: UrlType, params?: SearchParameters, options?: Requ
             ...headers,
             ...options?.headers,
         },
+        timeout: 5000,
         credentials: 'include',
         body: method === 'POST' ? body : undefined,
         onRequest() {
@@ -80,7 +92,7 @@ async function _fetch<T>(url: UrlType, params?: SearchParameters, options?: Requ
                 ElMessage.error(response._data.message)
                 return response._data = null
             }
-            return response._data = response._data.data
+            return response._data = response._data.data || 'success'
         },
         onResponseError({ request }) {
             console.log('🚀 ~ onResponseError ~ request:', request)

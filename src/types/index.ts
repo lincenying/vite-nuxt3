@@ -1,6 +1,9 @@
 import type ElScrollbar from 'element-plus/es/components/scrollbar'
 
+export type RefOrComputedRef<T> = Ref<T> | ComputedRef<T>
+
 export type ElScrollbarType = InstanceType<typeof ElScrollbar>
+export type ElMessageType = 'success' | 'warning' | 'info' | 'error'
 
 /**
  * 请求参数合集
