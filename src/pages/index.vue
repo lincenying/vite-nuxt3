@@ -38,7 +38,7 @@ let page = $ref(1)
 let hasPrev = $ref(false)
 let hasNext = $ref(false)
 
-const { data: posts, status } = await useHttp().get<ResDataLists<Article>>('/api/article/lists', { page: $$(page), limit: 13 }, { key: `article-index` })
+const { data: posts, status } = await useHttp.get<ResDataLists<Article>>('/api/article/lists', { page: $$(page), limit: 13 }, { key: `article-index` })
 
 const isLoading = useDelay(status, 300)
 

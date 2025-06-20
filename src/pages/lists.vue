@@ -36,7 +36,12 @@ const lists = ref<Article[]>([])
 const page = ref(1)
 let hasNext = $ref(false)
 
-const { data: posts, status } = await useHttp().get<ResDataLists<Article>>('/api/article/lists', { page, limit: 15 }, { key: `article-lists` })
+const api = useApi({
+    baseURL: '/api/',
+    timeout: 5000,
+})
+
+const { data: posts, status } = await api.get<ResDataLists<Article>>('article/lists', { page, limit: 15 }, { key: `article-lists` })
 
 const isLoading = useDelay(status, 300)
 
