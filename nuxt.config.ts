@@ -97,8 +97,12 @@ export default defineNuxtConfig({
         css: {
             preprocessorOptions: {
                 scss: {
-                    api: 'modern-compiler',
                 },
+            },
+        },
+        server: {
+            hmr: {
+                port: 57123,
             },
         },
         build: {
