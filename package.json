@@ -45,7 +45,7 @@
     "@types/md5": "^2.3.5",
     "@unocss/eslint-config": "^66.3.2",
     "consola": "^3.4.2",
-    "eslint": "^9.29.0",
+    "eslint": "^9.30.0",
     "eslint-plugin-format": "^1.0.1",
     "lint-staged": "^16.1.2",
     "simple-git-hooks": "^2.13.0",

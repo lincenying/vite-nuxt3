@@ -11,7 +11,7 @@
                     <span v-if="hasPrev" class=":uno: btn m-12px text-14px lh-20px" @click="handlePrev"> Prev </span>
                     <span v-if="hasNext" class=":uno: btn m-12px text-14px lh-20px" @click="handleNext"> Next </span>
                 </div>
-                <div>User: {{ name }} - Click: {{ counter }} - CountState: {{ count }} - Model: {{ model }}</div>
+                <div class=":uno: h-22px lh-22px">User: {{ name }} - Click: {{ counter }} - CountState: {{ count }} - Model: {{ model }}</div>
                 <div flex-cc gap-10px>
                     <button class="i-twemoji:backhand-index-pointing-right text-base" />
                     <span class=":uno: btn m-12px text-14px lh-20px" @click="handleToLists"> Go To Lists </span>
