@@ -1,0 +1,19 @@
+.index-wrap {
+    .home-ul {
+        li {
+            &:hover {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+
+    .cat-list-active {
+        --uno: bg-hex-f3f5f7 b-rd-4px;
+
+        a {
+            --uno: text-hex-007bff;
+        }
+    }
+}

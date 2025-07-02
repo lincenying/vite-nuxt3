@@ -1,0 +1,48 @@
+/* stylelint-disable selector-class-pattern */
+.el-dropdown-link {
+    &:active,
+    &:focus-visible,
+    &:focus {
+        outline: none;
+    }
+}
+
+.global-wrap {
+    .el-pagination {
+        --el-pagination-button-bg-color: #fff;
+    }
+
+    .el-loading-mask {
+        background-color: rgb(255, 255, 255, 0.03);
+
+        .el-loading-spinner {
+            margin-top: -15px;
+
+            svg {
+                display: inline-block;
+            }
+
+            .el-loading-text {
+                color: #fff;
+                text-shadow: 0 0 6px #409eff;
+            }
+        }
+    }
+
+    & > .el-loading-mask {
+        .el-loading-spinner {
+            --el-loading-spinner-size: 40px;
+
+            margin-top: -20px;
+
+            .el-loading-text {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.el-popup-parent--hidden {
+    width: 100% !important;
+    height: 100vh !important;
+}

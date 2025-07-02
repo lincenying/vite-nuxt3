@@ -1,0 +1,75 @@
+html {
+    overflow: hidden scroll;
+}
+
+body {
+    // width: 100vw;
+    min-height: 100vh;
+
+    // overflow: hidden scroll;
+    font-size: 12px;
+    line-height: 1;
+    color: #202935;
+    background-color: #f3f5f7;
+
+    // &::-webkit-scrollbar {
+    //     display: none;
+    // }
+
+    a {
+        transition: color 0.3s;
+
+        &:hover {
+            color: #0d6efd;
+        }
+
+        &:active,
+        &:focus-visible,
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+#root {
+    min-height: 100vh;
+}
+
+.scroll-none {
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@font-face {
+    font-family: led;
+    src: url('@/assets/fonts/lcd-bq.ttf') format('trueType');
+    font-display: block;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.2s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0.9;
+}
+
+/* start--文本行数限制--start */
+.line-2,
+[line-2],
+.line-3,
+[line-3],
+.line-4,
+[line-4],
+.line-5,
+[line-5] {
+    word-break: break-all;
+    white-space: inherit !important;
+}
+
+/* end--文本行数限制--end */

@@ -1,0 +1,35 @@
+.faqs-wrap {
+    .faqs-q {
+        &::before {
+            position: absolute;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 24px;
+            color: #fff;
+            text-align: center;
+            content: 'Q';
+            background: #007bff;
+            border-radius: 4px;
+        }
+    }
+
+    .faqs-a {
+        &::before {
+            position: absolute;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 24px;
+            color: #8a8a8a;
+            text-align: center;
+            content: 'A';
+            background: #eee;
+            border-radius: 4px;
+        }
+    }
+}

@@ -1,38 +1,39 @@
-import { acceptHMRUpdate, defineStore } from 'pinia'
+import type { UserState } from '../types/pinia.types'
+import { acceptHMRUpdate } from 'pinia'
+import { userStorage } from '~/composables/storage'
 
-const useStore = defineStore('user', () => {
-    /**
-     * Current named of the user.
-     */
-    const savedName = ref('')
-    const previousNames = ref(new Set<string>())
-
-    const usedNames = computed(() => Array.from(previousNames.value))
-    const otherNames = computed(() => usedNames.value.filter(name => name !== savedName.value))
+const usePiniaStore = defineStore('userStore', () => {
+    const state: UserState = reactive(userStorage.value || {
+        info: {}, // 用户信息
+        token: '',
+    })
 
     /**
-     * Changes the current name of the user and saves the one that was used
-     * before.
-     *
-     * @param name - new name to set
+     * 设置token
+     * @param payload string
      */
-    function setNewName(name: string) {
-        if (savedName.value) {
-            previousNames.value.add(savedName.value)
-        }
+    const setToken = (payload: string) => {
+        state.token = payload
+    }
 
-        savedName.value = name
+    const setInfo = (payload: Objable) => {
+        state.info = payload
     }
 
     return {
-        setNewName,
-        otherNames,
-        savedName,
+        ...toRefs(state),
+        setToken,
+        setInfo,
     }
 })
 
-export default useStore
+usePiniaStore(piniaInit).$subscribe((_mutation, state) => {
+    userStorage.value = state
+})
+
+export default usePiniaStore
+export const userStoreWithout = () => usePiniaStore(piniaInit)
 
 if (import.meta.hot) {
-    import.meta.hot.accept(acceptHMRUpdate(useStore, import.meta.hot))
+    import.meta.hot.accept(acceptHMRUpdate(usePiniaStore, import.meta.hot))
 }

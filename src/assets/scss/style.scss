@@ -1,49 +1,9 @@
-@use 'sass:map';
-
-html,
-body,
-#nuxt-root {
-    min-height: 100vh;
-    padding: 0;
-    margin: 0;
-}
-
-html.dark {
-    color: white;
-    background: #222;
-}
-
-body {
-    /* overflow-y: scroll; */
-    font-size: 14px;
-    line-height: 1;
-}
-
-.el-card {
-    .el-card__body {
-        height: 100%;
-        padding-right: 10px;
-    }
-
-    .el-scrollbar {
-        padding-right: 10px;
-    }
-}
-
-$margin-bottom: (
-    4: 4rpx,
-    8: 8rpx,
-    24: 24rpx,
-    32: 32rpx,
-    37: 37rpx,
-    40: 40rpx,
-    60: 60rpx
-);
-
-@mixin margin-bottom($key) {
-    margin-bottom: map.get($margin-bottom, $key);
-}
-
-.mb4 {
-    @include margin-bottom(4);
-}
+@use 'global/layout';
+@use 'global/element';
+@use 'login/login';
+@use 'pages/wrap';
+@use 'pages/home';
+@use 'pages/cases';
+@use 'pages/news';
+@use 'pages/faqs';
+@use 'pages/pdf';

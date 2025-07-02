@@ -1,0 +1,95 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+    width: 1920px;
+    height: 100vh;
+    background: url('@/assets/images/login/bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    transition: all 0.2s ease;
+
+    .login-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 520px;
+        height: 100%;
+
+        & > img {
+            width: 412px;
+            height: 48px;
+            margin-bottom: 50px;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px #cce6ff;
+        }
+
+        .login-form {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            height: 251px;
+            padding: 50px 0 37px;
+            background: url('@/assets/images/login/login_box.png') no-repeat 0 0;
+            background-size: 100% 100%;
+
+            .el-input {
+                width: 62%;
+                background: url('@/assets/images/login/login_input.png') no-repeat 0 0;
+                background-size: 100% 100%;
+            }
+
+            .login-line {
+                width: 64%;
+                height: 10px;
+                background: url('@/assets/images/login/login_line.png') no-repeat 0 0;
+                background-size: 100% 100%;
+            }
+
+            .login-btn {
+                width: 62%;
+                color: #f1eded;
+                background: transparent url('@/assets/images/login/login_input.png') no-repeat 0 0;
+                background-size: 100% 100%;
+                border-color: transparent;
+            }
+
+            .el-input__wrapper {
+                background-color: transparent;
+                border-color: transparent;
+            }
+
+            /* stylelint-disable-next-line selector-class-pattern */
+            .el-input__inner {
+                color: #f1eded;
+                background-color: transparent;
+                border-color: transparent;
+            }
+
+            /* stylelint-disable-next-line selector-class-pattern */
+            .el-input-group__prepend {
+                width: 80px;
+                color: #f1eded;
+                background-color: transparent;
+                border-color: transparent;
+            }
+        }
+
+        .login-tip {
+            margin-top: 40px;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #96cbfa;
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+{
+  "id": "2370153",
+  "name": "管理后台",
+  "font_family": "iconfont",
+  "css_prefix_text": "iconfont-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "15367",
+      "name": "下三角形",
+      "font_class": "xiasanjiaoxing",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "15368",
+      "name": "上三角形",
+      "font_class": "shangsanjiaoxing",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "111904",
+      "name": "五角星",
+      "font_class": "star",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "10446123",
+      "name": "空心五角星",
+      "font_class": "kongxinwujiaoxing",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "2087552",
+      "name": "科技",
+      "font_class": "keji",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "2132535",
+      "name": "安监",
+      "font_class": "anjian",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "6356885",
+      "name": "后勤",
+      "font_class": "houqin",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "6489729",
+      "name": "健康",
+      "font_class": "jiankang",
+      "unicode": "e68d",
+      "unicode_decimal": 59021
+    },
+    {
+      "icon_id": "6943364",
+      "name": "光伏电站",
+      "font_class": "guangfudianzhan",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "12592397",
+      "name": "营销",
+      "font_class": "yingxiao",
+      "unicode": "e74a",
+      "unicode_decimal": 59210
+    },
+    {
+      "icon_id": "12911861",
+      "name": "财务",
+      "font_class": "caiwu",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "20508528",
+      "name": "人力资源",
+      "font_class": "renliziyuan",
+      "unicode": "e8e9",
+      "unicode_decimal": 59625
+    }
+  ]
+}

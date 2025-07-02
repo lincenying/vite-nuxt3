@@ -1,0 +1,14 @@
+.global-header {
+    // background: #fff;
+}
+
+.global-wrap {
+    flex: 1 1 auto;
+
+    .article-content {
+        p {
+            margin-bottom: 24px;
+            text-indent: 2em;
+        }
+    }
+}

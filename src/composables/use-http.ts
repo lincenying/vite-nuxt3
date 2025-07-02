@@ -44,7 +44,8 @@ async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: R
     return useFetch<T>(url as string, {
         key: options?.key ?? md5(url as string),
         method,
-        params: { ...params, ...options?.query },
+        params,
+        query: options?.query,
         body: method === 'POST' ? body : undefined,
         headers: {
             ...headers,
@@ -96,7 +97,8 @@ async function _fetch<T>(url: UrlType, params?: SearchParameters, options?: Requ
     const body = options?.body || {}
     return $fetch<T>(url as string, {
         method,
-        params: { ...params, ...options?.query },
+        params,
+        query: options?.query,
         body: method === 'POST' ? body : undefined,
         headers: {
             ...headers,

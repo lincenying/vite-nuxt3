@@ -8,6 +8,7 @@ export default lincy(
             ignores: [
                 '**/assets',
                 '**/static',
+                '.nuxt',
             ],
         },
     },

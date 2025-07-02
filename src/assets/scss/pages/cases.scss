@@ -1,0 +1,11 @@
+.cases-wrap {
+    .cases-ul {
+        li {
+            &:hover {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}

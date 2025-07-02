@@ -1,9 +1,7 @@
 <template>
-    <main class="flex flex-col h-100vh px-20px py-20px text-center">
-        <slot />
+    <main id="root" flex="~ col">
+        <Header />
+        <div class="flex flex-col flex-auto"><slot /></div>
         <Footer />
-        <div class="flex-none mx-auto mt-20px text-center text-14px lh-20px opacity-25">
-            [Default Layout]
-        </div>
     </main>
 </template>

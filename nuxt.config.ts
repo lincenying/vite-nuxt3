@@ -48,8 +48,39 @@ export default defineNuxtConfig({
             },
         },
         routeRules: {
-            '/api/**': {
+            '/php/**': {
                 proxy: `${domain}/api/fetch/**`,
+            },
+        },
+        // 开启本地文件K/V存储
+        storage: {
+            fsdb: {
+                driver: 'fs',
+                // 相对项目根目录
+                base: './.data/fsdb',
+            },
+        },
+        // 开启sqlite数据库存储
+        experimental: {
+            database: true,
+        },
+        database: {
+        // 配置SQLite数据库
+            default: {
+                connector: 'sqlite',
+                options: {
+                // 相对项目根目录
+                    path: './.data/db.sqlite',
+                    name: 'db',
+                },
+            },
+            sqlite3: {
+                connector: 'better-sqlite3',
+                options: {
+                // 相对项目根目录
+                    path: './.data/db.sqlite3',
+                    name: 'db',
+                },
             },
         },
     },
@@ -59,9 +90,9 @@ export default defineNuxtConfig({
         head: {
             viewport: 'width=device-width,initial-scale=1',
             link: [
-                { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
-                { rel: 'icon', type: 'image/svg+xml', href: '/svg/nuxt.svg' },
-                { rel: 'apple-touch-icon', href: '/images/apple-touch-icon.png' },
+                { rel: 'icon', href: '/static/favicon.ico', sizes: 'any' },
+                { rel: 'stylesheet', href: '/static/css/reset.css' },
+                { rel: 'apple-touch-icon', href: '/static/images/apple-touch-icon.png' },
             ],
             meta: [
                 { name: 'viewport', content: 'width=device-width, initial-scale=1' },
