@@ -151,6 +151,15 @@ export default defineNuxtConfig({
                 },
             },
         },
+        optimizeDeps: {
+            include: [
+                '@element-plus/icons-vue',
+                '@lincy/async-validation',
+                '@tato30/vue-pdf',
+                'mitt',
+                'store2',
+            ],
+        },
         // ...vite
     },
     hooks: {
@@ -159,5 +168,5 @@ export default defineNuxtConfig({
         },
     },
 
-    compatibilityDate: '2024-09-14',
+    compatibilityDate: '2025-07-05',
 })
