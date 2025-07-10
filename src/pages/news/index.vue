@@ -52,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ElAffixType } from '~/types/global'
+import type { ElAffixType } from '~/types/global.types'
 import { UTC2Date } from '@lincy/utils'
 import topBannerImg from '@/assets/images/home/page-banner.jpg'
 import { appName } from '~/constants'

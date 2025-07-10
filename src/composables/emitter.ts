@@ -2,11 +2,11 @@ import mitt from 'mitt'
 
 const emitter = mitt<{
     'change-category': number
-    'refresh-product-comment': any
-    'refresh-case-comment': any
-    'refresh-news-comment': any
-    'refresh-faq-comment': any
-    'refresh-article-comment': any
+    'refresh-product-comment': number
+    'refresh-case-comment': number
+    'refresh-news-comment': number
+    'refresh-faq-comment': number
+    'refresh-article-comment': number
 }>()
 
 // 创建并暴露mitt

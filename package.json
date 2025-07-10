@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@10.12.4",
+  "packageManager": "pnpm@10.13.0",
   "scripts": {
     "build": "nuxi build",
     "dev:pwa": "VITE_PLUGIN_PWA=true nuxi dev",
@@ -44,7 +44,7 @@
     "@unocss/eslint-config": "^66.3.3",
     "@unocss/nuxt": "^66.3.3",
     "@vite-pwa/nuxt": "^1.0.4",
-    "@vue-macros/nuxt": "^3.0.0-beta.15",
+    "@vue-macros/nuxt": "3.0.0-beta.15",
     "@vueuse/nuxt": "^13.5.0",
     "consola": "^3.4.2",
     "eslint": "^9.30.1",
@@ -57,7 +57,7 @@
     "simple-git-hooks": "^2.13.0",
     "stylelint": "^16.21.1",
     "typescript": "^5.8.3",
-    "vite": "^7.0.2",
+    "vite": "^7.0.3",
     "vue-tsc": "^3.0.1"
   },
   "pnpm": {

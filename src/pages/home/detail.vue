@@ -55,7 +55,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ElAffixType } from '~/types/global'
+import type { ElAffixType } from '~/types/global.types'
 import topBannerImg from '@/assets/images/home/page-banner.jpg'
 import { appName } from '~/constants'
 

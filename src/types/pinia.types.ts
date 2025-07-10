@@ -2,7 +2,7 @@ import type { ArticleType } from './article.types'
 import type { CasesType } from './cases.types'
 import type { FaqsType } from './faqs.types'
 import type { CommentType } from '~/types/comments.types'
-import type { ListType } from '~/types/global'
+import type { ListType } from '~/types/global.types'
 import type { ProductsType } from '~/types/home.types'
 import type { NewsType } from '~/types/news.types'
 

@@ -82,3 +82,45 @@ export function normalizeCookiePath(cookieStr: string): string {
     // 重新组合为 Cookie 字符串
     return processedParts.join('; ')
 }
+
+/**
+ * 滚动到导航元素的位置
+ *
+ * 该函数用于平滑滚动页面，使指定的导航元素滚动到可视区域的顶部，并可进行额外的位置调整。
+ *
+ * @param {Ref<HTMLElement | undefined>} navigation - 一个响应式引用，指向要滚动到的导航元素
+ * @param {number} [adjust] - 可选参数，用于调整滚动位置的偏移量
+ * @returns {void}
+ */
+export function scrollToNav(navigation: Ref<HTMLElement | undefined>, adjust: number = 0): void {
+    // 获取导航元素相对于视口的顶部位置
+    let top = navigation.value?.getBoundingClientRect().top
+    // 如果导航元素存在
+    if (top !== undefined) {
+        // 计算最终的滚动位置，包括当前的垂直滚动位置和额外的调整值
+        top += window.scrollY + adjust
+    }
+    // 平滑滚动到计算出的位置
+    window.scrollTo({ top: top || 0, behavior: 'smooth' })
+}
+
+/**
+ * 滚动到评论的位置
+ *
+ * 该函数用于平滑滚动页面，使指定的导航元素滚动到可视区域的顶部，并可进行额外的位置调整。
+ *
+ * @param {Ref<HTMLElement | undefined>} commentBox - 一个响应式引用，指向要滚动到的导航元素
+ * @param {number} [adjust] - 可选参数，用于调整滚动位置的偏移量
+ * @returns {void}
+ */
+export function scrollToComment(commentBox: Ref<HTMLElement | undefined>, adjust: number = 0): void {
+    // 获取导航元素相对于视口的顶部位置
+    let top = commentBox.value?.getBoundingClientRect().top
+    // 如果导航元素存在
+    if (top !== undefined) {
+        // 计算最终的滚动位置，包括当前的垂直滚动位置和额外的调整值
+        top += window.scrollY + adjust
+    }
+    // 平滑滚动到计算出的位置
+    window.scrollTo({ top: top || 0, behavior: 'smooth' })
+}

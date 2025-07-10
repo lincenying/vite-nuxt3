@@ -1,4 +1,4 @@
-import type { ElScrollbarType } from '~/types/global'
+import type { ElScrollbarType } from '~/types/global.types'
 
 /**
  * 基于Elment-Plus滚动条组件的自动记录/恢复滚动条位置

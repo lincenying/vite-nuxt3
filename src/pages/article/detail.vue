@@ -58,7 +58,7 @@
 <script setup lang="ts">
 import type { ArticleType } from '~/types/article.types'
 import type { GlobalDialogLayer } from '~/types/components.types'
-import type { ElAffixType } from '~/types/global'
+import type { ElAffixType } from '~/types/global.types'
 import topBannerImg from '@/assets/images/home/page-banner.jpg'
 import { appName } from '~/constants'
 
