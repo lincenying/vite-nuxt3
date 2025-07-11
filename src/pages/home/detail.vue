@@ -63,6 +63,10 @@ defineOptions({
     name: 'RouterHomeDetail',
 })
 
+updateAppConfig({
+    menuActive: 'home',
+})
+
 const id = $(useRouteQuery<string>('id'))
 
 const productStore = useProductStore()

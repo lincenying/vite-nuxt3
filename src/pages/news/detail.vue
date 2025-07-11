@@ -62,6 +62,10 @@ defineOptions({
     name: 'RouterNewsDetail',
 })
 
+updateAppConfig({
+    menuActive: 'news',
+})
+
 const id = $(useRouteQuery<string>('id'))
 
 const newsStore = useNewsStore()

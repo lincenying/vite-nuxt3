@@ -67,6 +67,10 @@ defineOptions({
     name: 'RouterArticle',
 })
 
+updateAppConfig({
+    menuActive: 'article',
+})
+
 let page = $ref<number>(1)
 const pageSize = $ref<number>(12)
 const category = $(useRouteQuery<string>('category'))

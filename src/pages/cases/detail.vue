@@ -62,6 +62,10 @@ defineOptions({
     name: 'RouterCasesDetail',
 })
 
+updateAppConfig({
+    menuActive: 'cases',
+})
+
 const id = $(useRouteQuery<string>('id'))
 
 const casesStore = useCasesStore()

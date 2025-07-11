@@ -69,6 +69,10 @@ defineOptions({
     name: 'RouterCases',
 })
 
+updateAppConfig({
+    menuActive: 'cases',
+})
+
 let page = $ref<number>(1)
 const pageSize = $ref<number>(12)
 const category = $(useRouteQuery<string | undefined>('category'))

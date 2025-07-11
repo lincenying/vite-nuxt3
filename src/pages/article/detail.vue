@@ -65,6 +65,11 @@ import { appName } from '~/constants'
 defineOptions({
     name: 'RouterArticleDetail',
 })
+
+updateAppConfig({
+    menuActive: 'active',
+})
+
 const id = $(useRouteQuery<string>('id'))
 
 const articleStore = useArticleStore()

@@ -18,3 +18,24 @@
         display: none;
     }
 }
+
+.menu-wrap {
+    .menu-item {
+        position: relative;
+
+        &.active {
+            &::after {
+                position: absolute;
+                bottom: -2px;
+                left: 50%;
+                display: block;
+                width: 10px;
+                height: 2px;
+                content: '';
+                background-color: #0d6efd;
+                transition: width 0.3s ease-in-out;
+                transform: translateX(-50%);
+            }
+        }
+    }
+}

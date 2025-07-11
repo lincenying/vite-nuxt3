@@ -18,6 +18,7 @@ export default defineNuxtConfig({
         '@vite-pwa/nuxt',
         '@vue-macros/nuxt',
         '@vueuse/nuxt',
+        '@nuxt/image',
     ],
 
     elementPlus: { /** Options */ },
@@ -165,6 +166,19 @@ export default defineNuxtConfig({
     hooks: {
         'prepare:types': ({ references }) => {
             references.push({ types: '@lincy/utils' })
+        },
+    },
+
+    image: {
+        presets: {
+            cover: {
+                modifiers: {
+                    fit: 'cover',
+                    format: 'jpg',
+                    width: 300,
+                    height: 200,
+                },
+            },
         },
     },
 

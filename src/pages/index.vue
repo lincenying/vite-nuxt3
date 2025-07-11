@@ -79,6 +79,10 @@ import type { ElAffixType } from '~/types/global.types'
 import topBannerImg from '@/assets/images/home/page-banner.jpg'
 import { appName } from '@/constants'
 
+updateAppConfig({
+    menuActive: 'home',
+})
+
 const navigation = ref<HTMLElement>()
 
 let page = $ref<number>(1)

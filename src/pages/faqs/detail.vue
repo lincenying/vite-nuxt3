@@ -62,6 +62,10 @@ defineOptions({
     name: 'RouterFaqsDetail',
 })
 
+updateAppConfig({
+    menuActive: 'faqs',
+})
+
 const id = $(useRouteQuery<string>('id'))
 
 const faqsStore = useFaqsStore()
