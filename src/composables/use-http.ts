@@ -1,5 +1,6 @@
 import type { SearchParameters } from 'ofetch'
 
+import { isFormData } from '@lincy/utils'
 import { appendResponseHeader } from 'h3'
 import md5 from 'md5'
 
@@ -50,6 +51,7 @@ async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: R
         headers: {
             ...headers,
             ...options?.headers,
+            ...isFormData(body) ? { } : { 'Content-Type': 'application/json' },
         },
         baseURL: options?.baseURL,
         timeout: options?.timeout ?? 5000,
@@ -103,6 +105,7 @@ async function _fetch<T>(url: UrlType, params?: SearchParameters, options?: Requ
         headers: {
             ...headers,
             ...options?.headers,
+            ...isFormData(body) ? { } : { 'Content-Type': 'application/json' },
         },
         baseURL: options?.baseURL,
         timeout: options?.timeout ?? 5000,

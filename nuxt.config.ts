@@ -140,13 +140,19 @@ export default defineNuxtConfig({
         build: {
             rollupOptions: {
                 output: {
-                    manualChunks(id: string) {
+                    manualChunks: (id: string) => {
                         // 处理css分块
-                        if (id.includes('node_modules')) {
-                            return 'vendor'
-                        }
                         if (id.includes('__uno.css')) {
                             return 'unocss'
+                        }
+                        const chunks = ['element-plus', 'md-editor-v3', 'markdown-it', 'vue-pdf']
+                        if (id.includes('/node_modules/')) {
+                            for (const chunkName of chunks) {
+                                if (id.includes(chunkName)) {
+                                    return chunkName
+                                }
+                            }
+                            console.log(id)
                         }
                     },
                 },

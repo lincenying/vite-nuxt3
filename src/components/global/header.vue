@@ -22,6 +22,7 @@
                 <router-link class="menu-item" :class="appConfig.menuActive === 'faqs' ? 'active' : ''" mr-32px text-16px lh-32px to="/faqs">常见问题</router-link>
                 <router-link class="menu-item" :class="appConfig.menuActive === 'article' ? 'active' : ''" mr-32px text-16px lh-32px to="/article">SQLite文章</router-link>
                 <router-link class="menu-item" :class="appConfig.menuActive === 'pdf' ? 'active' : ''" mr-32px text-16px lh-32px to="/pdf">PDF</router-link>
+                <router-link class="menu-item" :class="appConfig.menuActive === 'editor' ? 'active' : ''" mr-32px text-16px lh-32px to="/editor">编辑器</router-link>
             </div>
         </div>
     </div>

@@ -9,6 +9,7 @@
 <script setup lang="ts">
 import { appName } from '~/constants'
 
+import 'md-editor-v3/lib/style.css'
 import './assets/icon-font/icon-font.css'
 import './assets/scss/global/animate.min.css'
 import './assets/scss/global/global.scss'
