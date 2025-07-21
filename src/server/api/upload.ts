@@ -19,7 +19,11 @@ export default defineEventHandler(async (event) => {
     if (process.env.NODE_ENV === 'development') {
         dir = '/src/public/upload'
     }
-    const filepath = path.join(process.cwd(), dir, file.filename!)
+    const dirPath = path.join(process.cwd(), dir)
+    if (!fs.existsSync(dirPath)) {
+        fs.mkdirSync(dirPath, { recursive: true })
+    }
+    const filepath = path.join(dirPath, file.filename!)
     fs.writeFileSync(filepath, file.data)
 
     return {
