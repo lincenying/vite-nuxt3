@@ -44,11 +44,11 @@ export function normalizeCookiePath(cookieStr: string): string {
     let foundPath = false
 
     // 处理第一个键值对（Cookie 名称和值）
-    processedParts.push(parts[0])
+    processedParts.push(parts[0]!)
 
     // 遍历剩余属性
     for (let i = 1; i < parts.length; i++) {
-        const part = parts[i]
+        const part = parts[i]!
         // 查找等号位置以分离键值
         const eqIndex = part.indexOf('=')
 

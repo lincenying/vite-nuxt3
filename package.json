@@ -14,7 +14,7 @@
     "start:generate": "npx serve .output/public",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "lint:ts": "vue-tsc --noEmit",
+    "lint:ts": "vue-tsc -b --noEmit",
     "lint:css": "stylelint '**/*.{css,scss}' --fix",
     "postinstall": "nuxi prepare",
     "prepare": "npx simple-git-hooks"

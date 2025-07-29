@@ -1,5 +1,4 @@
-import type { InsertSucces, User } from '~/types'
-import { useDatabase } from 'nitro/runtime'
+import type { InsertSucces, User } from '~~/server/types'
 
 export default defineEventHandler(async (event) => {
     const db = useDatabase('sqlite3')

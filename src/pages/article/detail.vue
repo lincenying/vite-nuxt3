@@ -59,6 +59,7 @@
 import type { ArticleType } from '~/types/article.types'
 import type { GlobalDialogLayer } from '~/types/components.types'
 import type { ElAffixType } from '~/types/global.types'
+import type { NewsType } from '~/types/news.types'
 import topBannerImg from '@/assets/images/home/page-banner.jpg'
 import { appName } from '~/constants'
 
@@ -75,7 +76,7 @@ const id = $(useRouteQuery<string>('id'))
 const articleStore = useArticleStore()
 const { detail } = storeToRefs(articleStore)
 
-const articleDetail = computed(() => detail.value[id] || {})
+const articleDetail = computed(() => detail.value[id] || {} as NewsType)
 
 const loading = ref(true)
 

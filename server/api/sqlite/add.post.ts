@@ -1,4 +1,4 @@
-import type { InsertSucces, User } from '~/server/types'
+import type { InsertSucces, User } from '~~/server/types'
 import { useDatabase } from 'nitropack/runtime'
 
 export default defineEventHandler(async (event) => {

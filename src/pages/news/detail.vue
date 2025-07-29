@@ -55,6 +55,7 @@
 
 <script setup lang="ts">
 import type { ElAffixType } from '~/types/global.types'
+import type { NewsType } from '~/types/news.types'
 import topBannerImg from '@/assets/images/home/page-banner.jpg'
 import { appName } from '~/constants'
 
@@ -71,7 +72,7 @@ const id = $(useRouteQuery<string>('id'))
 const newsStore = useNewsStore()
 const { detail } = storeToRefs(newsStore)
 
-const newsDetail = computed(() => detail.value[id] || {})
+const newsDetail = computed(() => detail.value[id] || {} as NewsType)
 
 const loading = ref(true)
 

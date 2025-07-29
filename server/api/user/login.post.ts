@@ -1,4 +1,4 @@
-import type { UserListType } from '~/server/types'
+import type { UserListType } from '~~/server/types'
 
 export default defineEventHandler(async (event) => {
     const users: UserListType[] = [{

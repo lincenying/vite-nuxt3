@@ -1,4 +1,4 @@
-import type { Article, InsertSucces } from '~/server/types'
+import type { Article, InsertSucces } from '~~/server/types'
 import { UTC2Date } from '@lincy/utils'
 import { useDatabase } from 'nitropack/runtime'
 

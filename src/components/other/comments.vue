@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import type { CommentTypeEnum } from '~/types/comments.types'
+import type { CommentType, CommentTypeEnum } from '~/types/comments.types'
 
 defineOptions({
     name: 'CommentLists',
@@ -57,7 +57,7 @@ const commentStore = useCommentStore()
 const { detail } = storeToRefs(commentStore)
 
 const commentList = computed(() => {
-    return detail.value[`${type}-${id}`] || {}
+    return detail.value[`${type}-${id}`] || {} as CommentType
 })
 
 const loading = ref(true)

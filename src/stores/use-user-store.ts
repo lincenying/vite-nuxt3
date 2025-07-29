@@ -1,9 +1,8 @@
 import type { UserState } from '../types/pinia.types'
 import { acceptHMRUpdate } from 'pinia'
-import { userStorage } from '~/composables/storage'
 
 const usePiniaStore = defineStore('userStore', () => {
-    const state: UserState = reactive(userStorage.value || {
+    const state: UserState = reactive({
         info: {}, // 用户信息
         token: '',
     })
@@ -25,10 +24,6 @@ const usePiniaStore = defineStore('userStore', () => {
         setToken,
         setInfo,
     }
-})
-
-usePiniaStore(piniaInit).$subscribe((_mutation, state) => {
-    userStorage.value = state
 })
 
 export default usePiniaStore

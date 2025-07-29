@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { GlobalDialogLayer } from '../components.types'
+import type { GlobalDialogLayer } from '~/types/components.types'
 
 defineOptions({
     name: 'GlobalDialog',

@@ -1,4 +1,4 @@
-import type { Article, ListPageType } from '~/server/types'
+import type { Article, ListPageType } from '~~/server/types'
 import { useDatabase } from 'nitropack/runtime'
 
 export default defineEventHandler(async (event) => {

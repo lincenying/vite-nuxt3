@@ -1,4 +1,4 @@
-import type { ListPageType } from '~/server/types'
+import type { ListPageType } from '../../types'
 import Mock from 'mockjs'
 
 export default defineEventHandler(async (event) => {
