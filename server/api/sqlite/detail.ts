@@ -1,5 +1,4 @@
 import type { QueryResult, User } from '~~/server/types'
-import { useDatabase } from 'nitropack/runtime'
 
 export default defineEventHandler(async (event) => {
     const id = getQuery<{ id: number }>(event).id

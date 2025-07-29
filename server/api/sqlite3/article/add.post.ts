@@ -1,6 +1,5 @@
 import type { Article, InsertSucces } from '~~/server/types'
 import { UTC2Date } from '@lincy/utils'
-import { useDatabase } from 'nitropack/runtime'
 
 export default defineEventHandler(async (event) => {
     const db = useDatabase('sqlite3')

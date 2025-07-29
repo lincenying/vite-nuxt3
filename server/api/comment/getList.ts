@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
     page = page || 1
     pageSize = pageSize || 10
     const template = {
-        list: Array.from({ length: pageSize }, (_, index) => ({
+        list: Array.from({ length: getRandomNumber(1, 3) }, (_, index) => ({
             id: (page - 1) * pageSize + index + 1,
             article: (page - 1) * pageSize + index + 1,
             user: {
