@@ -1,0 +1,19 @@
+@use 'sass:math';
+
+:root {
+    --design-width: #{$vmDesignWidth}px;
+    --design-height: #{$vmDesignHeight}px;
+    --design-multiple: #{$vmDesignMultiple};
+}
+
+html {
+    font-size: math.div($vmFontSize, $vmDesignWidth) * 100vw;
+
+    @media screen and (max-width: $vmMinWindow) {
+        font-size: math.div($vmFontSize, $vmDesignWidth) * $vmMinWindow;
+
+        #nuxt-root {
+            width: $vmMinWindow;
+        }
+    }
+}
