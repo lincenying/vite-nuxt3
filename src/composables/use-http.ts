@@ -68,8 +68,10 @@ async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: R
             // options.headers = options.headers || {};
         },
         onRequestError({ error }) {
-            ElMessage.closeAll()
-            error && ElMessage.error('Sorry, The Data Request Failed')
+            if (import.meta.client) {
+                ElMessage.closeAll()
+                error && ElMessage.error('Sorry, The Data Request Failed')
+            }
             // Handle the request errors
         },
         onResponse({ response }) {
@@ -79,8 +81,10 @@ async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: R
                     appendResponseHeader(H3Event, 'set-cookie', normalizeCookiePath(cookie))
                 }
             }
+            // Process the response data
             if (response._data.code !== 200) {
-                ElMessage.error(response._data.message)
+                if (import.meta.client)
+                    ElMessage.error(response._data.message)
                 return response._data = null
             }
             return response._data = response._data.data || 'success'
