@@ -18,13 +18,13 @@ export function useAutoScroll(refKey: string, scrolFunc?: AnyFn, stateKey?: stri
 
     onActivated(() => {
         console.log('onActivated')
-        const scrollBar = templateRef(refKey) as unknown as Ref<Pick<ElScrollbarType, 'setScrollTop'>>
+        const scrollBar = useTemplateRef<ElScrollbarType>(refKey)
         if (scrollTop.value)
             scrollBar.value?.setScrollTop(scrollTop.value)
     })
     onMounted(() => {
         console.log('onMounted')
-        const scrollBar = templateRef(refKey) as unknown as Ref<Pick<ElScrollbarType, 'setScrollTop'>>
+        const scrollBar = useTemplateRef<ElScrollbarType>(refKey)
         if (scrollTop.value)
             scrollBar.value?.setScrollTop(scrollTop.value)
     })
