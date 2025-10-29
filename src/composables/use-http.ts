@@ -82,12 +82,13 @@ async function _useFetch<T>(url: UrlType, params?: SearchParameters, options?: R
                 }
             }
             // Process the response data
-            if (response._data.code !== 200) {
+            const tmpData = response._data as any
+            if (tmpData.code !== 200) {
                 if (import.meta.client)
-                    ElMessage.error(response._data.message)
-                return response._data = null
+                    ElMessage.error(tmpData.message)
+                return response._data = undefined
             }
-            return response._data = response._data.data || 'success'
+            return response._data = tmpData.data || 'success'
         },
         onResponseError({ request }) {
             console.log('🚀 ~ onResponseError ~ request:', request)

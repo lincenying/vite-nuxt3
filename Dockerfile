@@ -8,7 +8,7 @@ RUN npm config set registry https://registry.npmmirror.com && npm install -g pnp
 
 WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile --ignore-scripts --store-dir $PNPM_HOME
+RUN pnpm install --frozen-lockfile --store-dir $PNPM_HOME
 COPY . .
 RUN pnpm run build
 
@@ -16,6 +16,7 @@ RUN pnpm run build
 FROM $NODE_VERSION AS production
 WORKDIR /app
 COPY --from=builder /app/.output ./.output
+COPY --from=builder /app/.data ./.data
 ENV NUXT_HOST=0.0.0.0 \
     NUXT_APP_VERSION=latest \
     NODE_ENV=production \
@@ -28,14 +29,14 @@ CMD ["node", "./.output/server/index.mjs"]
 # docker pull swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/node:22-alpine3.22
 # docker tag swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/node:22-alpine3.22 node:22-alpine
 # 构建镜像
-# docker build -t vite-nuext3:1.0.0616 -f ./Dockerfile .
+# docker build -t vite-nuxt:1.25.1029 -f ./Dockerfile .
 # 运行镜像
-# docker run -d -p 7223:4123 --add-host=host.docker.internal:host-gateway --name vite-nuext3 vite-nuext3:1.0.0616
+# docker run -d -p 4123:4123 --add-host=host.docker.internal:host-gateway --name vite-nuxt vite-nuxt:1.25.1029
 # 进入镜像
-# docker exec -it vite-nuext3 /bin/sh
+# docker exec -it vite-nuxt /bin/sh
 # 停止容器
-# docker stop vite-nuext3
+# docker stop vite-nuxt
 # 删除容器
-# docker rm vite-nuext3
+# docker rm vite-nuxt
 # 删除镜像
-# docker rmi vite-nuext3
+# docker rmi vite-nuxt:1.25.1029
