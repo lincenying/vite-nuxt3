@@ -14,8 +14,7 @@
 
 ## Rem 自适应
 
-- 删除`uno.config.ts`, 将`uno.config.rem.ts`重命名为`uno.config.ts`
-- 在`nuxt.config.ts`文件中, 删除`// import { viteCss as vite } from './nuxt.config.vite'` 和 `// ...vite,` 这两行的注释
+- 在`src/design.config.ts`文件中, 将`ifCssRem`改为`true`
 - 在`src/app.vue`中引入`src/assets/scss/global-rem.scss` (注意, 从vite中引入的scss全局变量, 不能在style.scss中use, 而必须要在入口文件中import)
 - 根据设计稿尺寸, 设置`src/design.config.ts`下相关参数
 - 在 CSS 中按设计稿尺寸书写即可, 单位依然用`px`

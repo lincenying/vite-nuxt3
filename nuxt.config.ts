@@ -1,9 +1,10 @@
 import processEnv from 'node:process'
 
-// import { viteCss as vite } from './nuxt.config.vite'
+import { viteCss as cssRem } from './nuxt.config.vite'
 import { pwa } from './src/config/pwa'
 
 import { appDescription } from './src/constants/index'
+import { ifCssRem } from './src/design.config'
 
 const domain = processEnv.env.NUXT_ENV_HOST_API_URL || 'https://php.mmxiaowu.com'
 
@@ -167,7 +168,7 @@ export default defineNuxtConfig({
                 'store2',
             ],
         },
-        // ...vite
+        ...(ifCssRem ? cssRem : {}),
     },
     hooks: {
         'prepare:types': ({ references }) => {

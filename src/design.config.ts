@@ -1,3 +1,6 @@
+/** 是否启用css单位转换为rem */
+export const ifCssRem = false
+
 /** 设计稿宽度, 此处最好就是按 1920 来计算, 避免 element-ui 之类 UI 框架出现字体不对 */
 export const designWidth = 1920
 /** 设计稿宽度, 此处最好就是按 1920 来计算, 避免 element-ui 之类 UI 框架出现字体不对 */
