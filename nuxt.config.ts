@@ -153,7 +153,6 @@ export default defineNuxtConfig({
                                     return chunkName
                                 }
                             }
-                            console.log(id)
                         }
                     },
                 },
