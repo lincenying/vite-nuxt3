@@ -1,4 +1,4 @@
-import type { AnyFn, MaybeRef } from '@vueuse/core'
+import type { AnyFn } from '@vueuse/core'
 import type ElAffix from 'element-plus/es/components/affix'
 import type ElScrollbar from 'element-plus/es/components/scrollbar'
 
