@@ -4,8 +4,8 @@ export default defineEventHandler(async (event) => {
     const db = useDatabase('sqlite3')
 
     let { page, pageSize } = getQuery<ListPageType>(event)
-    page = page || 1
-    pageSize = pageSize || 12
+    page ||= 1
+    pageSize ||= 12
 
     const offset = (page - 1) * pageSize
 
