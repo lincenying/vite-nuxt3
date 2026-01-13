@@ -5,7 +5,7 @@
             <div flex-auto max-w-1294px text-hex-8a8a8a lt-m1360="mx-24px">当前位置：<router-link to="/">首页</router-link> » PDF文件查看</div>
         </div>
         <div flex="~ justify-center" my-24px lt-m1360="mx-24px">
-            <client-only>
+            <client-only fallback="数据加载中...">
                 <pdfViewerComp></pdfViewerComp>
             </client-only>
         </div>

@@ -5,29 +5,33 @@
             <div flex-auto max-w-1294px text-hex-8a8a8a lt-m1360="mx-24px">当前位置：<router-link to="/">首页</router-link> » 编辑器</div>
         </div>
         <div flex="~ justify-center" my-24px lt-m1360="mx-24px">
-            <ClientOnly>
-                <div w-1294px flex="~ justify-between col">
+            <div w-1294px flex="~ justify-between col">
+                <global-client-only>
                     <h5 text-16px hex-202935 mb-16px>Markdown编辑器</h5>
                     <div h-700px>
-                        <MdEditor v-model="text" @on-upload-img="onUploadImg" />
+                        <MdEditor
+                            v-model="text" :toolbars-exclude="['github', 'mermaid', 'katex']" theme="light" code-theme="atom"
+                            @on-upload-img="onUploadImg" @on-html-changed="onHtmlChanged" @on-get-catalog="onGetCatalog"
+                        />
                     </div>
                     <h5 text-16px hex-202935 mt-24px mb-16px>Markdown内容预览</h5>
                     <div flex="~ justify-between" bg-hex-fff rounded="10px">
                         <div flex-auto w-1px p-20px b-r="1px solid hex-ccc">
-                            <MdPreview :id="id" :model-value="text" />
+                            <MdPreview :id="id" :model-value="text" code-theme="atom" />
                         </div>
                         <div w-200px flex-none>
                             <MdCatalog :editor-id="id" :scroll-element="scrollElement" />
                         </div>
                     </div>
-                </div>
-            </ClientOnly>
+                </global-client-only>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { MdCatalog, MdEditor, MdPreview } from 'md-editor-v3'
+import LinkAttr from 'markdown-it-link-attributes'
+import { config, MdCatalog, MdEditor, MdPreview } from 'md-editor-v3'
 import topBannerImg from '@/assets/images/home/page-banner.jpg'
 
 defineOptions({
@@ -42,6 +46,38 @@ useHead({
     title: 'MMF小屋-编辑器',
 })
 
+config({
+    markdownItPlugins(plugins) {
+        return [
+            ...plugins,
+            {
+                type: 'linkAttr',
+                plugin: LinkAttr,
+                options: {
+                    matcher(href: string) {
+                        // 如果使用了markdown-it-anchor
+                        // 应该忽略标题头部的锚点链接
+                        return !href.startsWith('#')
+                    },
+                    attrs: {
+                        target: '_blank',
+                    },
+                },
+            },
+            // {
+            //   type: 'anchor',
+            //   plugin: Anchor,
+            //   options: {
+            //     permalink: Anchor.permalink.headerLink(),
+            //     slugify(s: string) {
+            //       return s;
+            //     }
+            //   }
+            // }
+        ]
+    },
+})
+
 const scrollElement = ref<HTMLElement | undefined>(undefined)
 const id = 'preview-only'
 const text = ref(`# 标题1
@@ -50,6 +86,16 @@ Hello Editor!
 # 标题2
 Hello Editor!
 `)
+
+const html = ref('')
+
+function onHtmlChanged(payload: string) {
+    html.value = payload
+}
+
+function onGetCatalog(payload: string[]) {
+    console.log(payload)
+}
 
 onMounted(() => {
     scrollElement.value = document.documentElement
