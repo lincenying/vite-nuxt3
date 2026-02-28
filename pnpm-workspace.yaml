@@ -8,41 +8,45 @@ shamefullyHoist: true
 
 shellEmulator: true
 
+strictPeerDependencies: false
+
+trustPolicy: no-downgrade
+
+trustPolicyExclude:
+  - semver@6.3.1
+  - chokidar@4.0.3
+
 catalogs:
   dev:
     '@lincy/unocss-base-config': ^2.4.2
     consola: ^3.4.2
     mockjs: ^1.1.0
     postcss-px-to-viewport-8-plugin: ^1.2.5
-    sass: ^1.97.3
-    simple-git-hooks: ^2.13.1
-    stylelint: ^17.1.1
+    sass-embedded: ^1.97.3
+    stylelint: ^17.4.0
     typescript: ^5.9.3
     vite: ^7.3.1
-    vue-tsc: ^3.2.4
-
+    vue-tsc: ^3.2.5
   icons:
-    '@iconify-json/carbon': ^1.2.18
+    '@iconify-json/carbon': ^1.2.19
     '@iconify-json/twemoji': ^1.2.5
-
   lint:
-    '@lincy/eslint-config': ^6.4.0
-    '@lincy/stylelint-config': ^2.2.1
-    '@unocss/eslint-config': ^66.6.0
-    eslint: ^9.39.2
-    eslint-plugin-format: ^1.4.0
+    '@lincy/eslint-config': ^6.5.1
+    '@lincy/stylelint-config': ^2.2.2
+    '@unocss/eslint-config': ^66.6.2
+    eslint: ^10.0.2
+    eslint-plugin-format: ^2.0.1
     lint-staged: ^16.2.7
-
   nuxt:
     '@element-plus/nuxt': ^1.1.5
     '@nuxt/image': ^2.0.0
     '@nuxt/kit': ^4.3.1
     '@nuxtjs/color-mode': ^4.0.0
     '@pinia/nuxt': ^0.11.3
-    '@unocss/nuxt': ^66.6.0
+    '@unocss/nuxt': ^66.6.2
     '@vite-pwa/nuxt': ^1.1.1
     '@vue-macros/nuxt': ^3.1.2
-    '@vueuse/nuxt': ^14.2.0
+    '@vueuse/nuxt': ^14.2.1
     nuxt: ^4.3.1
   prod:
     '@lincy/async-validation': ^1.4.0
@@ -59,10 +63,7 @@ catalogs:
     '@types/markdown-it-link-attributes': ^3.0.5
     '@types/md5': ^2.3.6
     '@types/mockjs': ^1.0.10
-
 onlyBuiltDependencies:
   - better-sqlite3
   - esbuild
   - vue-demi
-
-strictPeerDependencies: false

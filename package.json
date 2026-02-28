@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.25.1029",
   "private": true,
-  "packageManager": "pnpm@10.29.2",
+  "packageManager": "pnpm@10.30.3",
   "scripts": {
     "build": "nuxi build --analyze",
     "dev:pwa": "VITE_PLUGIN_PWA=true nuxi dev",
@@ -58,8 +58,7 @@
     "mockjs": "catalog:dev",
     "nuxt": "catalog:nuxt",
     "postcss-px-to-viewport-8-plugin": "catalog:dev",
-    "sass": "catalog:dev",
-    "simple-git-hooks": "catalog:dev",
+    "sass-embedded": "catalog:dev",
     "stylelint": "catalog:dev",
     "typescript": "catalog:dev",
     "vite": "catalog:dev",
