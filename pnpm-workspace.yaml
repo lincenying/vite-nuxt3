@@ -1,20 +1,31 @@
+# 控制是否以及如何将依赖项添加到默认目录中
 catalogMode: prefer
 
+# 是否忽略向工作区根目录添加依赖时的警告提示
 ignoreWorkspaceRootCheck: true
 
+# npm 包注册表的基本 URL（包括尾部斜杠）
 registry: https://registry.npmmirror.com
 
+# 是否强制提升所有依赖
 shamefullyHoist: true
 
+# 在执行脚本时使用POSIX shell模拟器替代系统原生shell
 shellEmulator: true
 
+# 用于控制是否严格检查对等依赖（peer dependencies）的版本一致性。
+# 当设置为 true 时，pnpm 会强制安装指定版本的对等依赖；
+# 设置为 false 时，会忽略版本不一致的警告
 strictPeerDependencies: false
 
+# 当设置为“禁止降级”时，如果软件包的信任级别较之前的版本有所降低，pnpm 将无法安装
 trustPolicy: no-downgrade
 
+# 列出一个或多个 pnpm 应该允许安装的特定软件包或版本，即使这些软件包不满足信任策略要求。
 trustPolicyExclude:
-  - semver@6.3.1
-  - chokidar@4.0.3
+  - semver
+  - chokidar
+  - cached-factory
 
 catalogs:
   dev:
@@ -31,19 +42,19 @@ catalogs:
     '@iconify-json/carbon': ^1.2.19
     '@iconify-json/twemoji': ^1.2.5
   lint:
-    '@lincy/eslint-config': ^6.5.1
+    '@lincy/eslint-config': ^6.5.2
     '@lincy/stylelint-config': ^2.2.2
-    '@unocss/eslint-config': ^66.6.2
+    '@unocss/eslint-config': ^66.6.5
     eslint: ^10.0.2
     eslint-plugin-format: ^2.0.1
-    lint-staged: ^16.2.7
+    lint-staged: ^16.3.2
   nuxt:
     '@element-plus/nuxt': ^1.1.5
     '@nuxt/image': ^2.0.0
     '@nuxt/kit': ^4.3.1
     '@nuxtjs/color-mode': ^4.0.0
     '@pinia/nuxt': ^0.11.3
-    '@unocss/nuxt': ^66.6.2
+    '@unocss/nuxt': ^66.6.5
     '@vite-pwa/nuxt': ^1.1.1
     '@vue-macros/nuxt': ^3.1.2
     '@vueuse/nuxt': ^14.2.1
@@ -53,9 +64,9 @@ catalogs:
     '@lincy/utils': ^0.7.3
     '@tato30/vue-pdf': ^2.0.0
     better-sqlite3: ^12.6.2
-    element-plus: ^2.13.2
+    element-plus: ^2.13.3
     markdown-it-link-attributes: ^4.0.1
-    md-editor-v3: ^6.3.1
+    md-editor-v3: ^6.4.0
     md5: ^2.3.0
     pinia: ^3.0.4
     store2: ^2.14.4
@@ -63,6 +74,7 @@ catalogs:
     '@types/markdown-it-link-attributes': ^3.0.5
     '@types/md5': ^2.3.6
     '@types/mockjs': ^1.0.10
+
 onlyBuiltDependencies:
   - better-sqlite3
   - esbuild
