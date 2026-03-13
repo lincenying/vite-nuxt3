@@ -17,13 +17,13 @@ export function useAutoScroll(refKey: string, scrolFunc?: AnyFn, stateKey?: stri
     }
 
     onActivated(() => {
-        console.log('onActivated')
+        console.log('useAutoScroll - onActivated')
         const scrollBar = useTemplateRef<ElScrollbarType>(refKey)
         if (scrollTop.value)
             scrollBar.value?.setScrollTop(scrollTop.value)
     })
     onMounted(() => {
-        console.log('onMounted')
+        console.log('useAutoScroll - onMounted')
         const scrollBar = useTemplateRef<ElScrollbarType>(refKey)
         if (scrollTop.value)
             scrollBar.value?.setScrollTop(scrollTop.value)

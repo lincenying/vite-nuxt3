@@ -80,3 +80,20 @@ export const pwa: ModuleOptions = {
         navigateFallback: scope,
     },
 }
+
+export const app = {
+    rootId: 'nuxt-root',
+    head: {
+        viewport: 'width=device-width,initial-scale=1',
+        link: [
+            { rel: 'icon', href: '/static/favicon.ico', sizes: 'any' },
+            { rel: 'stylesheet', href: '/static/css/reset.css' },
+            { rel: 'apple-touch-icon', href: '/static/images/apple-touch-icon.png' },
+        ],
+        meta: [
+            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+            { name: 'description', content: appDescription },
+            { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+        ],
+    },
+}

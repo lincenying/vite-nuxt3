@@ -1,12 +1,7 @@
-import processEnv from 'node:process'
+import nitroConfig from './nuxt.config.nitro'
+import { viteConfig } from './nuxt.config.vite'
 
-import { viteCss as cssRem } from './nuxt.config.vite'
-import { pwa } from './src/config/pwa'
-
-import { appDescription } from './src/constants/index'
-import { ifCssRem } from './src/design.config'
-
-const domain = processEnv.env.NUXT_ENV_HOST_API_URL || 'https://php.mmxiaowu.com'
+import { app, pwa } from './src/config/pwa'
 
 export default defineNuxtConfig({
     srcDir: 'src',
@@ -36,75 +31,19 @@ export default defineNuxtConfig({
     },
 
     css: [
-        '@unocss/reset/tailwind-compat.css',
     ],
 
     colorMode: {
         classSuffix: '',
     },
 
-    nitro: {
-        esbuild: {
-            options: {
-                target: 'esnext',
-            },
-        },
-        routeRules: {
-            '/php/**': {
-                proxy: `${domain}/api/fetch/**`,
-            },
-        },
-        // 开启本地文件K/V存储
-        storage: {
-            fsdb: {
-                driver: 'fs',
-                // 相对项目根目录
-                base: './.data/fsdb',
-            },
-        },
-        // 开启sqlite数据库存储
-        experimental: {
-            database: true,
-        },
-        database: {
-        // 配置SQLite数据库
-            default: {
-                connector: 'sqlite',
-                options: {
-                // 相对项目根目录
-                    path: './.data/db.sqlite',
-                    name: 'db',
-                },
-            },
-            sqlite3: {
-                connector: 'better-sqlite3',
-                options: {
-                // 相对项目根目录
-                    path: './.data/db.sqlite3',
-                    name: 'db',
-                },
-            },
-        },
-    },
+    nitro: nitroConfig,
 
-    app: {
-        rootId: 'nuxt-root',
-        head: {
-            viewport: 'width=device-width,initial-scale=1',
-            link: [
-                { rel: 'icon', href: '/static/favicon.ico', sizes: 'any' },
-                { rel: 'stylesheet', href: '/static/css/reset.css' },
-                { rel: 'apple-touch-icon', href: '/static/images/apple-touch-icon.png' },
-            ],
-            meta: [
-                { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-                { name: 'description', content: appDescription },
-                { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
-            ],
-        },
-    },
+    app,
 
     pwa,
+
+    vite: viteConfig,
 
     devtools: {
         enabled: true,
@@ -124,50 +63,6 @@ export default defineNuxtConfig({
                 imports: ['sleep', 'UTC2Date'],
             },
         ],
-    },
-
-    vite: {
-        css: {
-            preprocessorOptions: {
-                scss: {
-                },
-            },
-        },
-        server: {
-            hmr: {
-                port: 57123,
-            },
-        },
-        build: {
-            rollupOptions: {
-                output: {
-                    manualChunks: (id: string) => {
-                        // 处理css分块
-                        if (id.includes('__uno.css')) {
-                            return 'unocss'
-                        }
-                        const chunks = ['element-plus', 'md-editor-v3', 'markdown-it', 'vue-pdf']
-                        if (id.includes('/node_modules/')) {
-                            for (const chunkName of chunks) {
-                                if (id.includes(chunkName)) {
-                                    return chunkName
-                                }
-                            }
-                        }
-                    },
-                },
-            },
-        },
-        optimizeDeps: {
-            include: [
-                '@element-plus/icons-vue',
-                '@lincy/async-validation',
-                '@tato30/vue-pdf',
-                'mitt',
-                'store2',
-            ],
-        },
-        ...(ifCssRem ? cssRem : {}),
     },
     hooks: {
         'prepare:types': ({ references }) => {

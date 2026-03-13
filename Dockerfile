@@ -21,7 +21,7 @@ ENV NUXT_HOST=0.0.0.0 \
     NUXT_APP_VERSION=latest \
     NODE_ENV=production \
     PORT=4123 \
-    NUXT_ENV_HOST_API_URL=https://php.mmxiaowu.com
+    NUXT_HOST_API_URL=https://php.mmxiaowu.com
 EXPOSE 4123
 CMD ["node", "./.output/server/index.mjs"]
 

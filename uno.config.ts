@@ -2,7 +2,7 @@ import { webConfig, webRemConfig } from '@lincy/unocss-base-config'
 
 import { fontSize, ifCssRem } from './src/design.config'
 
-const baseConfig = ifCssRem ? webRemConfig({ baseFontSize: fontSize }) : webConfig()
+const baseConfig = ifCssRem ? webRemConfig({ baseFontSize: fontSize }, 'wind3', { preflight: false }) : webConfig('wind3', { preflight: false })
 
 export default {
     ...baseConfig,
