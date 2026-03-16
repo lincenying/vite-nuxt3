@@ -141,17 +141,16 @@ export function useSaveScroll() {
         ls.remove(route.fullPath)
     })
 
-    onBeforeRouteLeave((_to, from, next) => {
+    onBeforeRouteLeave((_to, from) => {
         console.log('onBeforeRouteLeave', from.fullPath)
         // 将当前页面的滚动位置保存到本地存储中
         const scrollTop = window.scrollY || 0
         if (scrollTop === 0) {
             // 如果滚动位置为0，则不保存
             ls.remove(from.fullPath)
-            return next()
+            return
         }
         ls.set(from.fullPath, scrollTop)
         // 调用路由导航函数
-        next()
     })
 }
