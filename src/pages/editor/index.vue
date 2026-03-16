@@ -6,7 +6,7 @@
         </div>
         <div flex="~ justify-center" my-24px lt-m1360="mx-24px">
             <div w-1294px flex="~ justify-between col">
-                <global-client-only>
+                <client-only>
                     <h5 text-16px hex-202935 mb-16px>Markdown编辑器</h5>
                     <div h-700px>
                         <MdEditor
@@ -23,7 +23,7 @@
                             <MdCatalog :editor-id="id" :scroll-element="scrollElement" />
                         </div>
                     </div>
-                </global-client-only>
+                </client-only>
             </div>
         </div>
     </div>
