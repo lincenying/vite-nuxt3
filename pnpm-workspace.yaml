@@ -47,7 +47,7 @@ catalogs:
     '@unocss/eslint-config': ^66.6.6
     eslint: ^10.0.3
     eslint-plugin-format: ^2.0.1
-    lint-staged: ^16.3.3
+    lint-staged: ^16.4.0
   nuxt:
     '@element-plus/nuxt': ^1.1.5
     '@nuxt/image': ^2.0.0
@@ -63,7 +63,7 @@ catalogs:
     '@lincy/async-validation': ^1.4.0
     '@lincy/utils': ^0.7.3
     '@tato30/vue-pdf': ^2.0.1
-    better-sqlite3: ^12.6.2
+    better-sqlite3: ^12.8.0
     element-plus: ^2.13.5
     markdown-it-link-attributes: ^4.0.1
     md-editor-v3: ^6.4.0

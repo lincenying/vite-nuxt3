@@ -405,7 +405,7 @@ pre[class*='language-'] {
     text-align: left;
     text-shadow: 0 1px white;
     word-break: normal;
-    word-wrap: normal;
+    overflow-wrap: normal;
     tab-size: 4;
     white-space: pre;
     background: none;
