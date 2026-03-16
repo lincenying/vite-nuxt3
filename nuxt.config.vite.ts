@@ -91,6 +91,20 @@ export const viteConfig: ViteConfig = {
             '@tato30/vue-pdf',
             'mitt',
             'store2',
+            '@element-plus/icons-vue',
+            '@lincy/async-validation',
+            '@tato30/vue-pdf',
+            'mitt',
+            'store2', // CJS
+            'dayjs', // CJS
+            'dayjs/plugin/*.js',
+            'lodash-unified',
+            '@vue/devtools-core',
+            '@vue/devtools-kit',
+            '@lincy/utils',
+            'md5', // CJS
+            'markdown-it-link-attributes', // CJS
+            'md-editor-v3',
         ],
     },
     css: {
