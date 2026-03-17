@@ -7,7 +7,7 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN npm config set registry https://registry.npmmirror.com && npm install -g pnpm && mkdir -p $PNPM_HOME
 
 WORKDIR /app
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN pnpm install --frozen-lockfile --store-dir $PNPM_HOME
 COPY . .
 RUN pnpm run build
