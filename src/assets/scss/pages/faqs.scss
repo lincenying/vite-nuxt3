@@ -1,4 +1,12 @@
 .faqs-wrap {
+    .faqs-grid-item {
+        width: calc((100% - 24px) / 2);
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+    }
+
     .faqs-q {
         &::before {
             position: absolute;

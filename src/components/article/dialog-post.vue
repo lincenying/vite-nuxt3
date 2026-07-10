@@ -26,6 +26,7 @@ import type { FormInstance, FormItemRule } from 'element-plus'
 
 import type { GlobalDialogLayer, GlobalDiaslogInstance } from '~/types/components.types'
 import Rules from '@lincy/async-validation'
+import { editArticle, postArticle } from '~/api/article'
 import globalDialog from '~/components/global/dialog.vue'
 
 defineOptions({
@@ -87,7 +88,7 @@ function onSubmit() {
 }
 // 新增提交事件
 async function addForm(body: object) {
-    const data = await useHttp.$post('/api/sqlite3/article/add', {}, { body })
+    const data = await postArticle(body as Record<string, unknown>)
     if (data) {
         ElMessage({
             type: 'success',
@@ -99,7 +100,7 @@ async function addForm(body: object) {
 }
 // 编辑提交事件
 async function updateForm(body: object) {
-    const data = await useHttp.$post('/api/sqlite3/article/edit', {}, { body })
+    const data = await editArticle(body as Record<string, unknown>)
     if (data) {
         ElMessage({
             type: 'success',

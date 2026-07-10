@@ -1,4 +1,23 @@
 .cases-wrap {
+    .cases-list-item {
+
+        @media (max-width: 640px) {
+            flex-direction: column;
+            align-items: stretch;
+        }
+    }
+
+    .cases-list-cover {
+
+        @media (max-width: 640px) {
+            flex: none !important;
+            width: 100% !important;
+            height: 200px;
+            margin-right: 0 !important;
+            margin-bottom: 16px;
+        }
+    }
+
     .cases-ul {
         li {
             &:hover {

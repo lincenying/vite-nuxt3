@@ -46,3 +46,19 @@
     width: 100% !important;
     height: 100vh !important;
 }
+
+.el-overlay-dialog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .el-dialog {
+        margin: 0;
+
+        .dialog-footer {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

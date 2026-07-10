@@ -1,6 +1,7 @@
 import type { AnyFn } from '@vueuse/core'
 import type ElAffix from 'element-plus/es/components/affix'
 import type ElScrollbar from 'element-plus/es/components/scrollbar'
+import type { ComputedRef, MaybeRef } from 'vue'
 
 export type RefOrComputedRef<T> = Ref<T> | ComputedRef<T>
 

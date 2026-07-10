@@ -1,14 +1,10 @@
+import type { ListPayload } from '#shared/types'
 import type { ProductCategory, ProductState } from '../types/pinia.types'
-import type { NewsType } from '~/types/news.types'
 import { isEmpty } from '@lincy/utils'
 import { acceptHMRUpdate } from 'pinia'
-import { defaultList } from '~/constants'
+import { getHomeCategory, getHomeList, getHomeDetail } from '~/api/home'
 
-interface PayloadType {
-    page: number
-    tag: string | undefined
-    category: string | undefined
-}
+import { defaultList } from '~/constants'
 
 const usePiniaStore = defineStore('productStore', () => {
     const state: ProductState = reactive({
@@ -21,22 +17,22 @@ const usePiniaStore = defineStore('productStore', () => {
         state.category = payload
     }
 
-    const getIndex = async (payload: PayloadType) => {
-        const data = await useHttp.$get<ProductState['index']>('/api/home/getList', payload)
+    const getIndex = async (payload: ListPayload) => {
+        const data = await getHomeList(payload)
         if (!isEmpty(data)) {
             state.index = data
         }
     }
 
     const getCtegory = async () => {
-        const data = await useHttp.$get<ProductState['category']>('/api/home/getCategory', { })
+        const data = await getHomeCategory()
         if (!isEmpty(data)) {
             state.category = data
         }
     }
 
     const getDetail = async (id: string) => {
-        const data = await useHttp.$get<NewsType>('/api/news/detail', { id })
+        const data = await getHomeDetail(id)
         if (data) {
             state.detail[id] = data
         }

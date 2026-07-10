@@ -1,10 +1,13 @@
 import type { ListPageType } from '~~/server/types'
+import type { ApiResponse } from '#shared/types'
 import Mock from 'mockjs'
+import { getRandomValue } from '~~/server/utils'
+import { imgUrl } from '~~/server/utils/img'
 
 export default defineEventHandler(async (event) => {
     let { page, pageSize } = getQuery<ListPageType>(event)
-    page ||= 1
-    pageSize ||= 12
+    page = page || 1
+    pageSize = pageSize || 12
     const template = {
         list: Array.from({ length: pageSize }, (_, index) => ({
             id: (page - 1) * pageSize + index + 1,
@@ -24,5 +27,5 @@ export default defineEventHandler(async (event) => {
         code: 200,
         message: 'ok',
         data,
-    }
+    } satisfies ApiResponse<typeof data>
 })

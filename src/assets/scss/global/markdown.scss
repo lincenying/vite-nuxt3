@@ -1,0 +1,26 @@
+.md-editor .md-editor-preview {
+    font-size: 14px;
+
+    --md-theme-code-inline-color: #476582;
+    --md-theme-code-inline-bg-color: #1b1f230d;
+    --md-theme-color-reverse: #eee;
+    --md-theme-color-hover: #eee;
+    --md-theme-color-hover-inset: #ddd;
+    --md-theme-link-color: #3eaf7c;
+    --md-theme-link-hover-color: #73d13d;
+    --md-theme-border-color: #e6e6e6;
+    --md-theme-border-color-reverse: #bebebe;
+    --md-theme-border-color-inset: #d6d6d6;
+    --md-theme-bg-color: #fff;
+    --md-theme-bg-color-inset: #ececec;
+    --md-theme-code-copy-tips-color: inherit;
+    --md-theme-code-copy-tips-bg-color: #fff;
+    --md-theme-code-active-color: #61aeee;
+    --md-theme-radius-s: 2px;
+    --md-theme-radius-m: 5px;
+}
+
+div.default-theme a[target='_blank']::after {
+    width: 14px;
+    height: 14px;
+}

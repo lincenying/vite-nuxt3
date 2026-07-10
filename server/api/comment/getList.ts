@@ -1,10 +1,11 @@
 import type { ListPageType } from '~~/server/types'
 import Mock from 'mockjs'
+import { getRandomNumber } from '~~/server/utils'
 
 export default defineEventHandler(async (event) => {
     let { page, pageSize } = getQuery<ListPageType>(event)
-    page ||= 1
-    pageSize ||= 10
+    page = page || 1
+    pageSize = pageSize || 10
     const template = {
         list: Array.from({ length: getRandomNumber(1, 3) }, (_, index) => ({
             id: (page - 1) * pageSize + index + 1,

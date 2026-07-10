@@ -1,4 +1,6 @@
 import Mock from 'mockjs'
+import { getRandomValue } from '~~/server/utils'
+import { imgUrl } from '~~/server/utils/img'
 
 export default defineEventHandler(async (_event) => {
     const template = Array.from({ length: 4 }, (_, index) => ({

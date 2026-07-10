@@ -1,14 +1,10 @@
+import type { ListPayload } from '#shared/types'
 import type { ArticleState } from '../types/pinia.types'
-import type { ArticleType } from '~/types/article.types'
 import { isEmpty } from '@lincy/utils'
 import { acceptHMRUpdate } from 'pinia'
-import { defaultList } from '~/constants'
+import { getArticleDetail, getArticleList } from '~/api/article'
 
-interface PayloadType {
-    page: number
-    tag: string | undefined
-    category: string | undefined
-}
+import { defaultList } from '~/constants'
 
 const usePiniaStore = defineStore('articleStore', () => {
     const state: ArticleState = reactive({
@@ -16,15 +12,15 @@ const usePiniaStore = defineStore('articleStore', () => {
         detail: {},
     })
 
-    const getIndex = async (payload: PayloadType) => {
-        const data = await useHttp.$get<ArticleState['index']>('/api/sqlite3/article/lists', payload)
+    const getIndex = async (payload: ListPayload) => {
+        const data = await getArticleList(payload)
         if (!isEmpty(data)) {
             state.index = data
         }
     }
 
     const getDetail = async (id: string) => {
-        const data = await useHttp.$get<ArticleType>('/api/sqlite3/article/detail', { id })
+        const data = await getArticleDetail(id)
         if (data) {
             state.detail[id] = data
         }

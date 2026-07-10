@@ -1,5 +1,5 @@
 <template>
-    <div class="global-box" w="full" mb-24px p-24px bg="hex-fff" b-rd-6px>
+    <div class="global-box" w="full" bg="hex-fff" mb-24px b-rd-6px p-24px>
         <div class="global-box-title" m="0 b-24px" pl-16px text="14px hex-202935" font-bold b-l="6px bolid hex-007bff">发布评论</div>
         <div class="global-box-content">
             <div>
@@ -22,6 +22,7 @@
 
 <script setup lang="ts">
 import type { CommentTypeEnum } from '~/types/comments.types'
+import { postComment } from '~/api/comment'
 
 defineOptions({
     name: 'CommentPost',
@@ -49,9 +50,7 @@ async function handleSubmit() {
         return ElMessage.warning('请输入评论内容')
 
     loading.value = true
-    const data = await useHttp.$post('/api/comment/post', {}, {
-        body: form,
-    })
+    const data = await postComment(form)
     if (data) {
         ElMessage.success('评论成功')
         form.content = ''

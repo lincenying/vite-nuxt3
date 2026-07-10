@@ -1,46 +1,46 @@
 <template>
-    <div class="global-box" w="full" mb-24px p-24px bg="hex-fff" b-rd-6px>
+    <div class="global-box" w="full" bg="hex-fff" mb-24px b-rd-6px p-24px>
         <div class="global-box-title" m="0 b-24px" pl-16px text="14px hex-202935" font-bold b-l="6px bolid hex-007bff">相关推荐</div>
         <div class="global-box-content">
             <ul flex="~ wrap justify-between" mb--24px>
                 <template v-if="column === 'products'">
                     <li v-for="(item, index) in productsRelatedRecom" :key="index" w="[calc((100%-24px)/2)]" mb-24px>
-                        <router-link relative flex="~ items-center" :to="`/home/detail?id=${item.id}`">
+                        <NuxtLink relative flex="~ items-center" :to="`/home/detail?id=${item.id}`">
                             <i class="i-carbon-dot-mark" mr-5px></i>
                             <h3 text="14px" line-1>{{ item.title }}</h3>
-                        </router-link>
+                        </NuxtLink>
                     </li>
                 </template>
                 <template v-if="column === 'cases'">
                     <li v-for="(item, index) in casesRelatedRecom" :key="index" w="[calc((100%-24px)/2)]" mb-24px>
-                        <router-link relative flex="~ items-center" :to="`/cases/detail?id=${item.id}`">
+                        <NuxtLink relative flex="~ items-center" :to="`/cases/detail?id=${item.id}`">
                             <i class="i-carbon-dot-mark" mr-5px></i>
                             <h3 text="14px" line-1>{{ item.title }}</h3>
-                        </router-link>
+                        </NuxtLink>
                     </li>
                 </template>
                 <template v-if="column === 'news'">
                     <li v-for="(item, index) in newsRelatedRecom" :key="index" w="[calc((100%-24px)/2)]" mb-24px>
-                        <router-link relative flex="~ items-center" :to="`/news/detail?id=${item.id}`">
+                        <NuxtLink relative flex="~ items-center" :to="`/news/detail?id=${item.id}`">
                             <i class="i-carbon-dot-mark" mr-5px></i>
                             <h3 text="14px" line-1>{{ item.title }}</h3>
-                        </router-link>
+                        </NuxtLink>
                     </li>
                 </template>
                 <template v-if="column === 'faqs'">
                     <li v-for="(item, index) in faqsRelatedRecom" :key="index" w="[calc((100%-24px)/2)]" mb-24px>
-                        <router-link relative flex="~ items-center" :to="`/faqs/detail?id=${item.id}`">
+                        <NuxtLink relative flex="~ items-center" :to="`/faqs/detail?id=${item.id}`">
                             <i class="i-carbon-dot-mark" mr-5px></i>
                             <h3 text="14px" line-1>{{ item.title }}</h3>
-                        </router-link>
+                        </NuxtLink>
                     </li>
                 </template>
                 <template v-if="column === 'article'">
                     <li v-for="(item, index) in articleRelatedRecom" :key="index" w="[calc((100%-24px)/2)]" mb-24px>
-                        <router-link relative flex="~ items-center" :to="`/article/detail?id=${item.id}`">
+                        <NuxtLink relative flex="~ items-center" :to="`/article/detail?id=${item.id}`">
                             <i class="i-carbon-dot-mark" mr-5px></i>
                             <h3 text="14px" line-1>{{ item.title }}</h3>
-                        </router-link>
+                        </NuxtLink>
                     </li>
                 </template>
             </ul>
@@ -54,6 +54,11 @@ import type { CasesType } from '~/types/cases.types'
 import type { FaqsType } from '~/types/faqs.types'
 import type { ProductsType } from '~/types/home.types'
 import type { NewsType } from '~/types/news.types'
+import { getArticleRecommend } from '~/api/article'
+import { getCasesRelatedRecom } from '~/api/cases'
+import { getFaqsRelatedRecom } from '~/api/faqs'
+import { getHomeRelatedRecom } from '~/api/home'
+import { getNewsRelatedRecom } from '~/api/news'
 
 defineOptions({
     name: 'RelatedRecom',
@@ -71,31 +76,31 @@ const faqsRelatedRecom = ref<FaqsType[]>([])
 const articleRelatedRecom = ref<ArticleType[]>([])
 
 async function getProductsRelatedRecom() {
-    const { data } = await useHttp.get<ProductsType[]>(() => `/api/home/relatedRecom?categoryId=${categoryId}`, { })
+    const { data } = await getHomeRelatedRecom({ categoryId: categoryId ?? '' })
     if (data.value) {
         productsRelatedRecom.value = data.value
     }
 }
-async function getCasesRelatedRecom() {
-    const { data } = await useHttp.get<CasesType[]>(() => '/api/cases/relatedRecom', { })
+async function getCasesRelatedRecomData() {
+    const { data } = await getCasesRelatedRecom({})
     if (data.value) {
         casesRelatedRecom.value = data.value
     }
 }
-async function getNewsRelatedRecom() {
-    const { data } = await useHttp.get<NewsType[]>(() => '/api/news/relatedRecom', { })
+async function getNewsRelatedRecomData() {
+    const { data } = await getNewsRelatedRecom({})
     if (data.value) {
         newsRelatedRecom.value = data.value
     }
 }
-async function getFaqsRelatedRecom() {
-    const { data } = await useHttp.get<FaqsType[]>(() => '/api/faqs/relatedRecom', { })
+async function getFaqsRelatedRecomData() {
+    const { data } = await getFaqsRelatedRecom({})
     if (data.value) {
         faqsRelatedRecom.value = data.value
     }
 }
-async function getArticleRelatedRecom() {
-    const { data } = await useHttp.get<ArticleType[]>(() => '/api/sqlite3/article/relatedRecom', { })
+async function getArticleRelatedRecomData() {
+    const { data } = await getArticleRecommend()
     if (data.value) {
         articleRelatedRecom.value = data.value
     }
@@ -105,15 +110,15 @@ if (column === 'products') {
     await getProductsRelatedRecom()
 }
 else if (column === 'cases') {
-    await getCasesRelatedRecom()
+    await getCasesRelatedRecomData()
 }
 else if (column === 'news') {
-    await getNewsRelatedRecom()
+    await getNewsRelatedRecomData()
 }
 else if (column === 'faqs') {
-    await getFaqsRelatedRecom()
+    await getFaqsRelatedRecomData()
 }
 else if (column === 'article') {
-    await getArticleRelatedRecom()
+    await getArticleRelatedRecomData()
 }
 </script>

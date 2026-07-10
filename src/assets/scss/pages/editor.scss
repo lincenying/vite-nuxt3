@@ -1,3 +1,38 @@
+.editor-container {
+    width: 100%;
+    max-width: 1294px;
+}
+
+.editor-workspace {
+
+    @media (max-width: 960px) {
+        height: 500px;
+    }
+}
+
+.editor-preview-layout {
+
+    @media (max-width: 960px) {
+        flex-direction: column;
+    }
+}
+
+.editor-preview-main {
+
+    @media (max-width: 960px) {
+        border-right: none !important;
+        border-bottom: 1px solid #ccc;
+    }
+}
+
+.editor-preview-catalog {
+
+    @media (max-width: 960px) {
+        flex: none !important;
+        width: 100% !important;
+    }
+}
+
 .md-editor {
     height: 100%;
 }

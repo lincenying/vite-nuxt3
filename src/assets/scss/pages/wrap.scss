@@ -10,5 +10,12 @@
             margin-bottom: 24px;
             text-indent: 2em;
         }
+
+        @media (max-width: 640px) {
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
     }
 }

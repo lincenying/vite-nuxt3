@@ -1,19 +1,15 @@
-import type { CommentType } from '~/types/comments.types'
+import type { CommentListPayload } from '#shared/types'
 import type { CommentState } from '~/types/pinia.types'
 import { acceptHMRUpdate } from 'pinia'
 
-interface PayloadType {
-    page: number
-    id: string | number
-    type: string
-}
+import { getCommentList } from '~/api/comment'
 
 const usePiniaStore = defineStore('commentStore', () => {
     const state: CommentState = reactive({
         detail: {},
     })
-    const getComment = async (payload: PayloadType) => {
-        const data = await useHttp.$get<CommentType>('/api/comment/getList', payload)
+    const getComment = async (payload: CommentListPayload) => {
+        const data = await getCommentList(payload)
         if (data) {
             state.detail[`${payload.type}-${payload.id}`] = data
         }

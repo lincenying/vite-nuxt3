@@ -1,4 +1,18 @@
 .index-wrap {
+    .home-grid-item {
+        width: calc((100% - 48px) / 3);
+
+        @media (max-width: 960px) {
+            width: calc((100% - 24px) / 2);
+        }
+        @media (max-width: 1145px) {
+            width: calc((100% - 24px) / 2);
+        }
+        @media (max-width: 640px) {
+            width: 100%;
+        }
+    }
+
     .home-ul {
         li {
             &:hover {

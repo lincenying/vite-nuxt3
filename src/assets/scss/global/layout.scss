@@ -19,7 +19,22 @@
     }
 }
 
+$header-menu-breakpoint: 820px;
+
+.global-header {
+    &__inner {
+        position: relative;
+    }
+}
+
 .menu-wrap {
+    &--desktop {
+
+        @media (max-width: #{$header-menu-breakpoint - 1px}) {
+            display: none !important;
+        }
+    }
+
     .menu-item {
         position: relative;
 
@@ -38,4 +53,130 @@
             }
         }
     }
+}
+
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    color: #202935;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+
+    @media (max-width: #{$header-menu-breakpoint - 1px}) {
+        display: flex;
+    }
+}
+
+.mobile-menu-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 1000;
+    min-width: 180px;
+    max-height: calc(100vh - 96px);
+    padding: 8px 0;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgb(0, 0, 0, 0.12);
+
+    @media (min-width: $header-menu-breakpoint) {
+        display: none !important;
+    }
+}
+
+.mobile-menu-item,
+.mobile-menu-subitem {
+    a {
+        display: block;
+        padding: 8px 20px;
+        color: #202935;
+        text-decoration: none;
+
+        &:hover {
+            color: #0d6efd;
+            background-color: #f5f7fa;
+        }
+    }
+}
+
+.mobile-menu-item.active {
+    a {
+        font-weight: 500;
+        color: #0d6efd;
+    }
+}
+
+.mobile-menu-subitem {
+    a {
+        padding-left: 36px;
+        color: #606266;
+    }
+}
+
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-menu-enter-from,
+.mobile-menu-leave-to {
+    opacity: 0;
+    transform: translateY(-8px);
+}
+
+$page-layout-breakpoint: 960px;
+
+.page-layout {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1294px;
+
+    > .page-main:only-child {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    @media (max-width: $page-layout-breakpoint) {
+        flex-direction: column;
+    }
+}
+
+.page-sidebar {
+    flex-shrink: 0;
+    width: 320px;
+
+    @media (max-width: $page-layout-breakpoint) {
+        order: 2;
+        width: 100%;
+        margin-top: 24px;
+
+        .el-affix--fixed {
+            position: static !important;
+            width: auto !important;
+            height: auto !important;
+        }
+    }
+}
+
+.page-main {
+    flex: 1 1 auto;
+    width: 1px;
+    margin-left: 24px;
+
+    @media (max-width: $page-layout-breakpoint) {
+        order: 1;
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.detail-meta {
+    flex-wrap: wrap;
+    gap: 8px 20px;
 }

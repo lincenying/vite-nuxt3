@@ -1,29 +1,29 @@
 <template>
-    <div ref="commnetBox" v-loading="loading" class="global-box" w="full" mb-24px p-24px bg="hex-fff" b-rd-6px>
+    <div ref="commnetBox" v-loading="loading" class="global-box" w="full" bg="hex-fff" mb-24px b-rd-6px p-24px>
         <div class="global-box-title" m="0 b-24px" pl-16px text="14px hex-202935" font-bold b-l="6px bolid hex-007bff">评论列表</div>
         <div class="global-box-content">
             <ul>
                 <li v-for="(item, index) in commentList.list" :key="index">
                     <div flex="~" p="y-20px" b-b="1px solid hex-f7f7f7">
-                        <img w-40px h-40px b="rd-50%" :src="item.user.avatar" alt="">
+                        <img h-40px w-40px b="rd-50%" :src="item.user.avatar" alt="">
                         <div ml-16px>
                             <div text="hex-6a6a6a 13px" font-bold>
                                 <a href="#">{{ item.user.name }}</a>
                             </div>
                             <div mt-6px text="hex-717171">{{ item.date }}</div>
-                            <div text="hex-333 14px" lh-24px mt-12px>{{ item.content }}</div>
+                            <div text="hex-333 14px" mt-12px lh-24px>{{ item.content }}</div>
                         </div>
                     </div>
                     <ul v-if="item.children && item.children.length > 0" ml-56px>
                         <li v-for="(sub_item, sub_index) in item.children" :key="sub_index">
                             <div flex="~" p="y-20px" b-b="1px solid hex-f7f7f7">
-                                <img w-40px h-40px b="rd-50%" :src="sub_item.user.avatar" alt="">
+                                <img h-40px w-40px b="rd-50%" :src="sub_item.user.avatar" alt="">
                                 <div ml-16px>
                                     <div text="hex-6a6a6a 13px" font-bold>
                                         <a href="#">{{ sub_item.user.name }}</a>
                                     </div>
                                     <div mt-6px text="hex-717171">{{ sub_item.date }}</div>
-                                    <div text="hex-333 14px" lh-24px mt-12px>{{ sub_item.content }}</div>
+                                    <div text="hex-333 14px" mt-12px lh-24px>{{ sub_item.content }}</div>
                                 </div>
                             </div>
                         </li>

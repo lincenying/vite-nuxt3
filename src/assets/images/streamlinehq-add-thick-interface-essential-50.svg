@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="50" width="50">
+  <path
+    fill="currentColor"
+    fill-rule="evenodd"
+    d="M9 0C8.44772 0 8 0.447715 8 1V8H1C0.447715 8 0 8.44772 0 9V15C0 15.5523 0.447715 16 1 16H8V23C8 23.5523 8.44772 24 9 24H15C15.5523 24 16 23.5523 16 23V16H23C23.5523 16 24 15.5523 24 15V9C24 8.44772 23.5523 8 23 8H16V1C16 0.447715 15.5523 0 15 0H9Z"
+    clip-rule="evenodd"></path>
+</svg>

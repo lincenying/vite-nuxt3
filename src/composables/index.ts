@@ -151,6 +151,5 @@ export function useSaveScroll() {
             return
         }
         ls.set(from.fullPath, scrollTop)
-        // 调用路由导航函数
     })
 }

@@ -7,6 +7,8 @@ ignoreWorkspaceRootCheck: true
 # npm 包注册表的基本 URL（包括尾部斜杠）
 registry: https://registry.npmmirror.com
 
+minimumReleaseAge: 0
+
 # 是否强制提升所有依赖
 shamefullyHoist: true
 
@@ -29,44 +31,44 @@ trustPolicyExclude:
 
 catalogs:
   dev:
-    '@lincy/unocss-base-config': ^2.6.2
+    '@lincy/unocss-base-config': ^2.7.4
     consola: ^3.4.2
     mockjs: ^1.1.0
     postcss-px-to-viewport-8-plugin: ^1.2.5
-    sass-embedded: ^1.98.0
-    stylelint: ^17.4.0
-    typescript: ^5.9.3
-    vite: ^7.3.1
-    vue-tsc: ^3.2.5
+    sass-embedded: ^1.100.0
+    stylelint: ^17.14.0
+    typescript: ^6.0.3
+    vite: ^7.3.6
+    vue-tsc: ^3.3.7
   icons:
-    '@iconify-json/carbon': ^1.2.19
+    '@iconify-json/carbon': ^1.2.24
     '@iconify-json/twemoji': ^1.2.5
   lint:
-    '@lincy/eslint-config': ^6.5.2
-    '@lincy/stylelint-config': ^2.2.2
-    '@unocss/eslint-config': ^66.6.6
-    eslint: ^10.0.3
+    '@lincy/eslint-config': ^7.2.0
+    '@lincy/stylelint-config': ^2.2.3
+    '@unocss/eslint-config': ^66.7.5
+    eslint: ^10.6.0
     eslint-plugin-format: ^2.0.1
-    lint-staged: ^16.4.0
+    lint-staged: ^17.0.8
   nuxt:
     '@element-plus/nuxt': ^1.1.5
     '@nuxt/image': ^2.0.0
-    '@nuxt/kit': ^4.4.2
-    '@nuxtjs/color-mode': ^4.0.0
+    '@nuxt/kit': ^4.4.8
+    '@nuxtjs/color-mode': ^4.0.1
     '@pinia/nuxt': ^0.11.3
-    '@unocss/nuxt': ^66.6.6
+    '@unocss/nuxt': ^66.7.5
     '@vite-pwa/nuxt': ^1.1.1
     '@vue-macros/nuxt': ^3.1.2
-    '@vueuse/nuxt': ^14.2.1
-    nuxt: ^4.4.2
+    '@vueuse/nuxt': ^14.3.0
+    nuxt: ^4.4.8
   prod:
     '@lincy/async-validation': ^1.4.0
     '@lincy/utils': ^0.7.3
-    '@tato30/vue-pdf': ^2.0.1
-    better-sqlite3: ^12.8.0
-    element-plus: ^2.13.5
+    '@tato30/vue-pdf': ^2.1.0
+    better-sqlite3: ^12.11.1
+    element-plus: ^2.14.2
     markdown-it-link-attributes: ^4.0.1
-    md-editor-v3: ^6.4.0
+    md-editor-v3: ^6.5.3
     md5: ^2.3.0
     pinia: ^3.0.4
     store2: ^2.14.4
@@ -79,3 +81,10 @@ onlyBuiltDependencies:
   - better-sqlite3
   - esbuild
   - vue-demi
+
+allowBuilds:
+  '@parcel/watcher': true
+  better-sqlite3: true
+  esbuild: true
+  oxc-resolver: true
+  sharp: true

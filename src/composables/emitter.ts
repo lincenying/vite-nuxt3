@@ -1,6 +1,13 @@
 import mitt from 'mitt'
 
 const emitter = mitt<{
+    'no-auth': void
+    'need-login': void
+    'api-error': string
+    'cancel-interval': void
+    'nprogress-start': string
+    'nprogress-done': string
+
     'change-category': number
     'refresh-product-comment': number
     'refresh-case-comment': number

@@ -1,5 +1,7 @@
 import type { ElScrollbarType } from '~/types/global.types'
 
+export type ScrollbarInstance = ElScrollbarType
+
 /**
  * 基于Elment-Plus滚动条组件的自动记录/恢复滚动条位置
  * @param refKey 组件ref名称
@@ -17,13 +19,13 @@ export function useAutoScroll(refKey: string, scrolFunc?: AnyFn, stateKey?: stri
     }
 
     onActivated(() => {
-        console.log('useAutoScroll - onActivated')
+        console.log('onActivated')
         const scrollBar = useTemplateRef<ElScrollbarType>(refKey)
         if (scrollTop.value)
             scrollBar.value?.setScrollTop(scrollTop.value)
     })
     onMounted(() => {
-        console.log('useAutoScroll - onMounted')
+        console.log('onMounted')
         const scrollBar = useTemplateRef<ElScrollbarType>(refKey)
         if (scrollTop.value)
             scrollBar.value?.setScrollTop(scrollTop.value)

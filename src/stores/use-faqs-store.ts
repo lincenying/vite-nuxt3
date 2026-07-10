@@ -1,14 +1,10 @@
+import type { ListPayload } from '#shared/types'
 import type { FaqsState } from '../types/pinia.types'
-import type { FaqsType } from '~/types/faqs.types'
 import { isEmpty } from '@lincy/utils'
 import { acceptHMRUpdate } from 'pinia'
-import { defaultList } from '~/constants'
+import { getFaqsDetail, getFaqsList } from '~/api/faqs'
 
-interface PayloadType {
-    page: number
-    tag: string | undefined
-    category: string | undefined
-}
+import { defaultList } from '~/constants'
 
 const usePiniaStore = defineStore('faqsStore', () => {
     const state: FaqsState = reactive({
@@ -16,15 +12,15 @@ const usePiniaStore = defineStore('faqsStore', () => {
         detail: {},
     })
 
-    const getIndex = async (payload: PayloadType) => {
-        const data = await useHttp.$get<FaqsState['index']>('/api/faqs/getList', payload)
+    const getIndex = async (payload: ListPayload) => {
+        const data = await getFaqsList(payload)
         if (!isEmpty(data)) {
             state.index = data
         }
     }
 
     const getDetail = async (id: string) => {
-        const data = await useHttp.$get<FaqsType>('/api/news/detail', { id })
+        const data = await getFaqsDetail(id)
         if (data) {
             state.detail[id] = data
         }
