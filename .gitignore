@@ -4,3 +4,5 @@ dist
 .output
 .nuxt
 .idea/
+
+.data/*.sqlite3
